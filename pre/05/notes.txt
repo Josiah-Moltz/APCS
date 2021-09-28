@@ -1,1 +1,9 @@
+Notable Things:
+-You can specify the datatype of the value a function returns
+-Every possible path through the program must have a return statement
 
+Things Left Unclear:
+-What exactly is a return type of void?
+-How does java tell when some value won't yield a return in the program?
+
+Overall understanding: 9

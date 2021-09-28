@@ -1,1 +1,8 @@
+Notable Things:
+-You can have more than one method in a class
+-Parameter variables must be specified
 
+Things Left Unclear:
+-How do you actually use Javadoc?
+
+Overall understanding: 10

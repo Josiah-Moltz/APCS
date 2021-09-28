@@ -1,1 +1,13 @@
+Notable Things:
+-Java seems similar to C++ (I know a tiny bit from using Asymptote)
+-There are TWO types of errors, compile and run time errors.
+-You MUST specify a data type in a variable definition.
+-Variables can be defined all at the beginning of a document, or incrementally as they are used
+-The small errors that occur in arithmetic are because terminating decimals are NON-TERMINATING in binary!!
+-Program structure: Package -> Class -> Method -> Statement -> Expression -> Token
 
+Things Left Unclear:
+-Scanner (a bit confusing, with lots of syntax)
+-Double vs Int division (well explained, I am just a bit shaky)
+
+Overall understanding: 7

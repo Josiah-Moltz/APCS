@@ -1,1 +1,8 @@
+Notable Things:
+-Fairly similar conditionals (if, else)
+-See Data.java for a description of logical operators.
+-Binary recursion: Printing AFTER the recursion reverses the order of the digits! (Super cool!!!)
 
+Things Left Unclear:
+
+Overall understanding: 10

@@ -1,1 +1,13 @@
+Notable Things:
+-Arrays also have a variables
+-Every variable is initially 0
+-Array variables are references to the array
+-Arrays won't print on their own
 
+Things Left Unclear:
+-What is new?
+-What exactly do they mean when they say an Array variable references the array?
+-What is different from a normal array and a variable that it won't print?
+-Also something related to the definition, but I can't remember
+
+Overall understanding: 7

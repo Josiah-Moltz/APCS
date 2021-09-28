@@ -1,1 +1,7 @@
+Notable Things:
+-Lots of necessary syntax
 
+Things Left Unclear:
+-How/why Hello works (what are all the public class etc??)
+
+Overall understanding: 5
