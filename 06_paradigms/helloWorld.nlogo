@@ -1,9 +1,5 @@
 to helloWorld
-  cro 10
-  ask turtles [
-    set label "Hello, World!"
-    fd 10
-  ]
+  write "Hello World!"
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -36,7 +32,7 @@ ticks
 @#$#@#$#@
 ## WHAT IS IT?
 
-A program that prints "Hello, World!" (in a fancy ring!!)
+A program that prints "Hello, World!" into the observer output
 
 ## HOW TO USE IT?
 
