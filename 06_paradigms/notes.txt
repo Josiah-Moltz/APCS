@@ -1,0 +1,11 @@
+Similarities:
+  Each required the string argument "Hello, World!" (quotes required)
+  to be the argument of some function or another
+  All three programs printed the output in a terminal like window when run
+
+Differences:
+  Netlogo doesn't use parentheses to delimit expressions while Scheme and Python do
+  Scheme uses prefix notation (had to google)
+  while Python and Netlogo use infix notation (had to GOogle)
+  Netlogo includes the quotes in its ouptut, while Python and Scheme do not
+  No program used the same function name for printing
