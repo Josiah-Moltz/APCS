@@ -1,3 +1,8 @@
+Josiah Moltz
+APCS
+HW06 -- Paradigm Shift/Differences Between Languages/Comparing the printing between Netlogo, Scheme, and Python
+2021--09--28
+
 Similarities:
   Each required the string argument "Hello, World!" (quotes required)
   to be the argument of some function or another

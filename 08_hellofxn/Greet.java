@@ -1,7 +1,7 @@
 /*
 Josiah Moltz
 APCS
-HW08 -- Refactor Freshi Zero/Java Reviw/Making a method to greet peiople in Java
+HW08 -- Refactor Freshie Zero/Java Review/Making a method to greet people in Java
 2021--09--30
 */
 
