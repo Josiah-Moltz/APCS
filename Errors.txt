@@ -1,0 +1,86 @@
+2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Greet.java:8: error: illegal '.'
+		../08_hellofxn/Greet.greet("Jacob");
+		 ^
+Greet.java:8: error: illegal underscore
+		../08_hellofxn/Greet.greet("Jacob");
+		     ^
+Greet.java:8: error: not a statement
+		../08_hellofxn/Greet.greet("Jacob");
+		              ^
+3 errors
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+Tried testing out referencing classes from other directories by giving path to file
+-----------------------------------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Greet.java:19: error: cannot access Queso
+		Queso.greet();
+		^
+  bad class file: ./Queso.class
+    class file contains wrong class: Greet
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+Renamed 07_helloclass/Greet.class to 09_bigsib/Queso.class and forgot
+the file name must match the class name
+-----------------------------------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Greet.java:19: error: cannot find symbol
+		Queso.greet();
+		     ^
+  symbol:   method greet()
+  location: class Queso
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+No method named greet in class Queso
+-----------------------------------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Greet.java:19: error: method main in class Queso cannot be applied to given types;
+		Queso.main();
+		     ^
+  required: String[]
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+No arguments given for main, even when arguments specified
+-----------------------------------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
