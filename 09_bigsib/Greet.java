@@ -12,6 +12,7 @@ DISCOVERIES
 -Main method is hard to reference from a different class because you must have String[] input
 -If foo is a String[] and System.out.println(foo) yields <hoodyhah>, using <hoodyhah> to reference foo fails
  (Even tried removing [Ljava.lang.String;)
+-You can reference classes with just their .class files
 
 UNRESOLVED QUESTIONS
 -Null?
