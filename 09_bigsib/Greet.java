@@ -13,6 +13,7 @@ DISCOVERIES
 -If foo is a String[] and System.out.println(foo) yields <hoodyhah>, using <hoodyhah> to reference foo fails
  (Even tried removing [Ljava.lang.String;)
 -You can reference classes with just their .class files
+-You can't pull files ignored by .gitignore with a standard pull command from github
 
 UNRESOLVED QUESTIONS
 -Null?

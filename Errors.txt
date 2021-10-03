@@ -84,3 +84,30 @@ No arguments given for main, even when arguments specified
 -----------------------------------------------------------------------------------
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Greet.java:19: error: illegal start of expression
+		Queso.main({""});
+		           ^
+Greet.java:19: error: not a statement
+		Queso.main({""});
+		            ^
+Greet.java:19: error: ';' expected
+		Queso.main({""});
+		              ^
+Greet.java:19: error: illegal start of expression
+		Queso.main({""});
+		               ^
+4 errors
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+Not totally sure, but {""} isn't recognized as a String[] because it wasn't defined as one
+-----------------------------------------------------------------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
