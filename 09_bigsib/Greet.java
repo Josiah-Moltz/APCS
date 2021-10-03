@@ -12,6 +12,7 @@ DISCOVERIES
 -Main method is hard to reference from a different class because you must have String[] input
 -If foo is a String[] and System.out.println(foo) yields <hoodyhah>, using <hoodyhah> to reference foo fails
  (Even tried removing [Ljava.lang.String;)
+ I believe racket allows you to reference things by their "code" names, is this another difference between compiled and interpreted languages?
 -You can reference classes with just their .class files
 -You can't pull files ignored by .gitignore with a standard pull command from github
 
