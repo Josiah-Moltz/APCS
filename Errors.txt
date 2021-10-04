@@ -22,6 +22,7 @@ Tried testing out referencing classes from other directories by giving path to f
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -41,6 +42,7 @@ Explanation
 Renamed 07_helloclass/Greet.class to 09_bigsib/Queso.class and forgot
 the file name must match the class name
 -----------------------------------------------------------------------------------
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -64,6 +66,7 @@ No method named greet in class Queso
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -84,6 +87,7 @@ No arguments given for main, even when arguments specified
 -----------------------------------------------------------------------------------
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 2021-10-03:Users/josiahmoltz/APCS/09_bigsib/Greet.java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,4 +114,60 @@ Explanation
 Not totally sure, but {""} isn't recognized as a String[] because it wasn't defined as one
 -----------------------------------------------------------------------------------
 
+
+2021-10-03:Users/josiahmoltz/APCS/10_bigsib/BigSib.java
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+Error: Main method not found in class BigSib, please define the main method as:
+   public static void main(String[] args)
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+Run time error caused by lack of main() when running java BigSib.
+-----------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+2021-10-03:Users/josiahmoltz/APCS/10_bigsib/BigSib.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+josiahmoltz@Josiahs-MacBook-Pro 10_bigsib % javac BigSib.java
+BigSib.java:10: error: incompatible types: unexpected return value
+    return "Your Big Sib gives you a warm welcome, " + name;
+                                                     ^
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+void type specified in function, but the function returned a String
+-----------------------------------------------------------------------------------
+
+
+2021-10-03:Users/josiahmoltz/APCS/10_bigsib/BigSib.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+josiahmoltz@Josiahs-MacBook-Pro 10_bigsib % javac Greet.java
+Greet.java:8: error: 'void' type not allowed here
+    System.out.println(BigSib.greet("Crosby"));
+                                   ^
+Greet.java:9: error: 'void' type not allowed here
+    System.out.println(BigSib.greet("Stills"));
+                                   ^
+Greet.java:10: error: 'void' type not allowed here
+    System.out.println(BigSib.greet("Nash"));
+                                   ^
+3 errors
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+Attempted to print a void
+-----------------------------------------------------------------------------------
