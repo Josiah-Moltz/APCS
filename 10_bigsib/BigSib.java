@@ -1,5 +1,5 @@
 // Team With A Vowel: Lior (toothless), Alif (Grippy), Josiah (Hedwig)
-// APCS
+// APCS 
 // HW10 -- Refactor Big Sib One/function types and return/Rewriting void BigSib.greet() to return a String
 // 2021-10-04
 
