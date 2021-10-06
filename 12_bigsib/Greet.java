@@ -1,4 +1,4 @@
-// MoJi(a)ng Josiah Moltz and Jing Feng
+// tnpg Tiger Josiah Moltz and Jing Feng
 // APCS
 // HW12 -- On Elder Individuality and the Elimination of Radio Fuzz/instance variables (?)/Accessing/"editing" BigSib by making a "copy"
 // 2021-10-06
