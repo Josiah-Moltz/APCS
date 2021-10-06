@@ -171,3 +171,39 @@ Explanation
 -----------------------------------------------------------------------------------
 Attempted to print a void
 -----------------------------------------------------------------------------------
+
+
+2021-10-03:Users/josiahmoltz/APCS/12_bigsib/BigSib.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+josiahmoltz@Josiahs-MacBook-Pro 12_bigsib % javac Greet.java
+./BigSib.java:4: error: non-static variable helloMsg cannot be referenced from a static context
+    helloMsg=msg;
+    ^
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+???
+-----------------------------------------------------------------------------------
+
+
+2021-10-03:Users/josiahmoltz/APCS/12_bigsib/BigSib.java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Errors
+----------------------------------------
+josiahmoltz@Josiahs-MacBook-Pro 12_bigsib % javac BigSib.java
+BigSib.java:1: error: modifier static not allowed here
+public static class BigSib  {
+              ^
+1 error
+----------------------------------------
+
+Explanation
+-----------------------------------------------------------------------------------
+static can't be applied to a class
+-----------------------------------------------------------------------------------
