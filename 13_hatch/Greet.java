@@ -1,6 +1,6 @@
-// tnpg Tiger Josiah Moltz and Jing Feng
+// tnpg Tiger Josiah Moltz (hedwig) and Jing Feng (biscuit)
 // APCS
-// HW12 -- On Elder Individuality and the Elimination of Radio Fuzz/instance variables (?)/Accessing/"editing" BigSib by making a "copy"
+// HW13 -- Where do BigSibs Come From?/constructors/Eliminating the need to initialize variables on creation of new object with constructors
 // 2021-10-06
 
 public class Greet {
@@ -8,8 +8,6 @@ public class Greet {
     String greeting;
 
     BigSib richard = new BigSib();
-    //new is required (checked)
-    richard.setHelloMsg("Word up");         //initializing helloMsg
     System.out.println(richard.helloMsg);   //printing to check change worked
     richard.setHelloMsg("blah(hoodyhah)");  //second change to helloMsg
     System.out.println(richard.helloMsg);
