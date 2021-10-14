@@ -11,7 +11,17 @@ DISCO
 QCC
 
 Team Can Josiah Beautify's Latest and Greatest Q2 Response:
+Java still allows us to create an object of class BigSib even though we have not yet written the constructor for BigSib because there is a default constructor. 
+
 Team Can Josiah Beautify's Latest and Greatest Q3 Response:
+Print it!?!?!?
+When we printed arrays (during the prework), there wasn't an excellent String representation. (there is an Array.toString() that allows us to conveniently print arrays)
+However, when printing an Integer, Java prints it very nicely. 
+Additionally 
+
+
+Q2: How do you know BEFORE you wrote your own constructor, that Java provides one for you?
+Q3: Describe a test to determine whether Java provides a mean of outping a STRING REPRESENTATION of an OBJECT?
 */
 
 
