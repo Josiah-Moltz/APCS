@@ -10,18 +10,18 @@ DISCO
 - Printing the BankAccount cjb yields BankAccount@1eb44e46
 - There is no default .toString() method for objects (?)
 - static means outside the class (?)
-	so when trying to run (in main method) non-static methods
-	we have to specify from what object they are coming from for main to recognize them.
-	However by creating an OBJECT, and referencing methods from the OBJECT (object.method)
-	main knows where to operate.
+  so when trying to run (in main method) non-static methods
+  we have to specify from what object they are coming from for main to recognize them.
+  However by creating an OBJECT, and referencing methods from the OBJECT (object.method)
+  main knows where to operate.
 - Creating an OBJECT of BankAccount in a non-static method of BankAccount,
-	and then trying to operate on that OBJECT yields an infinite loop (muy mal) (tested with foo in printInfo)
+  and then trying to operate on that OBJECT yields an infinite loop (muy mal) (tested with foo in printInfo)
 - \n is a new line
 
 QCC
 - Can you call an OBJECT of ANOTHER class inside a non-static method?
 - What exactly does it mean to be static/outside the class????
-	How would this compile since its its generating a class?
+  How would this compile since its its generating a class?
 -
 
 Team Can Josiah Beautify's Latest and Greatest Q2 Response:
