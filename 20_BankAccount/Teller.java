@@ -18,9 +18,11 @@ public class Teller {
 		
 		cjb.setName("Can Josiah Beautify");
 		cjb.setPasswd("TheAnswerIsNo");
-		cjb.setPin(32767);
+		cjb.setPin((short) 32767);
 		cjb.setAcctNum(2000000000);
 		cjb.setBalance(-100.0);
+		
+		System.out.println("\n"+cjb.toString());
 		
 	}
 
