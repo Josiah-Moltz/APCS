@@ -42,14 +42,14 @@ public class Driver {
     int x = 70000; // minimum number of heads (should be >= to 65536)
     int y = 70000; // minimum number of matches
 
-  	while (matches < y || matches % 2005 != 0 || (tinPig.getHeadsCtr() + intIgp.getHeadsCtr()) < x) {
-      //Used De Morgans Law (sorry for the nerdy terminology) to get the above statement since while loops only exit on FALSE, or NOT TRUE
-  		tinPig.flip();
-      intIgp.flip();
-      if (tinPig.equals(intIgp)) {matches += 1;}
-    }
+    while (matches < y || matches % 2005 != 0 || (tinPig.getHeadsCtr() + intIgp.getHeadsCtr()) < x) {
+       //Used De Morgans Law (sorry for the nerdy terminology) to get the above statement since while loops only exit on FALSE, or NOT TRUE
+  	   tinPig.flip();
+       intIgp.flip();
+       if (tinPig.equals(intIgp)) {matches += 1;}
+     }
 
-  	System.out.println("Heads tinPig: " + tinPig.getHeadsCtr());
+    System.out.println("Heads tinPig: " + tinPig.getHeadsCtr());
   	System.out.println("Tails tinPig: " + tinPig.getTailsCtr());
     System.out.println("Heads intIgp: " + intIgp.getHeadsCtr());
     System.out.println("Tails intIgp: " + intIgp.getTailsCtr());
@@ -75,14 +75,14 @@ public class Driver {
     // System.out.println(tinPig);
     // System.out.println(tinPig.equals(ntiGpi));
 
-    //NUCLEAR TESTING ZONE (watch for flying debris)
-    //--------------------------------------------------------
-    //Driver pinTig = new Driver();
-    //System.out.println(pinTig);
-    //System.out.println(pinTig.equals(new Driver()));
-    //System.out.println(new Driver());
-    //System.out.println(tinPig.equals(new Coin("quarter")));
-    //System.out.println(tinPig);
+    // NUCLEAR TESTING ZONE (watch for flying debris)
+    // --------------------------------------------------------
+    // Driver pinTig = new Driver();
+    // System.out.println(pinTig);
+    // System.out.println(pinTig.equals(new Driver()));
+    // System.out.println(new Driver());
+    // System.out.println(tinPig.equals(new Coin("quarter")));
+    // System.out.println(tinPig);
 
   }//end main()
 
