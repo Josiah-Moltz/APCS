@@ -1,20 +1,38 @@
-// TNPG Tin Pig: Josiah Moltz and Corina Chen
+// TNPG TinPig: Josiah Moltz and Corina Chen
 // APCS pd06
-// HW23 -- What Does Equality Look Like? / Pair Programming / Creating Coin.java and testing it in Driver.java
-// 2021-10-24
-// Time Spent: 0.7 hours (42 minutes)
+// HW24 -- Get It While You Can / While Loops / Updating Coin.java and running it a bunch of times with a while loop
+// 2021-10-25
+// Time Spent: .7 hours (42 minutes)
 
 /*
 
 DISCO
-* Null can be compared (bc it worked in our code and did not return errors!)
-  (Even when it's not set to a certain value, it still ran)
-* "this.<name>" help clears up name-space errors
+  -this() (and this) is NOT static
+  -accessors allows us to return PRIVATE variables, because they (the methods) are PUBLIC
+  -System.out.println(tinPig.equals(new Coin("quarter"))); returns true ~50% of the time
+  -printing an object in java is equivalent to printing object.toString()
+  -If .toString is overloaded, java will use the OVERLOADED method instead of its native .toString
+  -.equals compares the .toString representations of objects (?)
+  -Not all new className() are equal (even if nothing about them is changed post-creation)
 
 QCC
-* Does Java always initialize variables as null?
-* Are there any other uses for "this.<name>"?
+  -What does it mean "this is inherited"? We could NOT runn tinPig.this, or tinPig.this()
+   java said tinPig.this couldn't be found, and tinPig.this() needed a ')' in place of '()'
+  -Why can't java find the symbol Driver in class Driver?
+  -WHAT IS
+    ```
+    Driver.java:34: error: as of release 8, 'this' is allowed as the parameter name for the receiver type only
+    Driver pinTig = new this();
+                        ^
+      which has to be the first parameter, and cannot be a lambda parameter
+    ```
+    ???????????????????????
 
+POST-v0 MODS
+  -Changed assignValue to include "half dollar"
+  -Changed reset to reset flipCtr, headsCtr, and tailsCtr in addition to value and bias
+  -Changed flip to show tails if the random number is >= to the bias, as opposed to <= to the bias
+  
 */
 
 public class Coin {
@@ -80,7 +98,7 @@ public class Coin {
   // Accessors...
   // ----------------------------
   public String getUpFace() {
-    return this.upFace; //????????????????????????????????
+    return this.upFace;
   }
 
   public int getFlipCtr() {
@@ -139,7 +157,6 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset( String s, double d ) {
-  //CHANGED FROM OG
     flipCtr = 0;
     tailsCtr = 0;
     headsCtr = 0;
@@ -158,7 +175,6 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-  //CHANGED <= to >=
     flipCtr = flipCtr + 1;
     double flipRand = Math.random();
     if (flipRand >= bias) {
@@ -181,8 +197,7 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-  //REMOVED () FROM METHODS
-      return getUpFace.equals(other.getUpFace);
+      return getUpFace().equals(other.getUpFace());
   }
 
 
@@ -192,7 +207,8 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-      return name + " -- " + upFace;
+    //OVERWRITING native .toString
+    return name + " -- " + upFace;
   }
 
 }//end class
