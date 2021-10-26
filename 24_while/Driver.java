@@ -34,7 +34,7 @@ QCC
 public class Driver {
 
   public static void main( String[] args ) {
-  	Coin tinPig = new Coin("quarter");
+    Coin tinPig = new Coin("quarter");
     Coin intIgp = new Coin("quarter");
 
     int matches = 0;  //tells us how many matches between tinPig and intIgp occur
