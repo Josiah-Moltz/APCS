@@ -43,7 +43,9 @@ public class Driver {
     int y = 70000; // minimum number of matches
 
     while (matches < y || matches % 2005 != 0 || (tinPig.getHeadsCtr() + intIgp.getHeadsCtr()) < x) {
-      //Used De Morgans Law (sorry for the nerdy terminology) to get the above statement since while loops only exit on FALSE, or NOT TRUE
+      //Used De Morgans Law (opposite of 'A and B' is '!A or !B')to get from 
+      //(matches >= y && matches %2005 == 0 && (tinPig.getHeadsCtr() + intIgp.getHeadsCtr()) <= x)
+      //to the above since while loops exit when the BE is NOT TRUE
       tinPig.flip();
       intIgp.flip();
       if (tinPig.equals(intIgp)) {matches += 1;}
