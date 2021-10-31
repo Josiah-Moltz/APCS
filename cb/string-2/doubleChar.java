@@ -8,14 +8,14 @@ public class doubleChar {
   }
 
   public static void main(String args[]) {
-    System.out.println("The"); // "TThhee"	"TThhee"
-    System.out.println("AAbb"); // "AAAAbbbb"	"AAAAbbbb"
-    System.out.println("Hi-There"); // "HHii--TThheerree"	"HHii--TThheerree"
-    System.out.println("Word!"); // "WWoorrdd!!"	"WWoorrdd!!"
-    System.out.println("!!"); // "!!!!"	"!!!!"
-    System.out.println(""); // ""	""
-    System.out.println("a"); // "aa"	"aa"
-    System.out.println("."); // ".."	".."
-    System.out.println("aa"); // "aaaa"	"aaaa"
+    System.out.println(doubleChar("The")); // "TThhee"
+    System.out.println(doubleChar("AAbb")); // "AAAAbbbb"
+    System.out.println(doubleChar("Hi-There")); // "HHii--TThheerree"
+    System.out.println(doubleChar("Word!")); // "WWoorrdd!!"
+    System.out.println(doubleChar("!!")); // "!!!!"
+    System.out.println(doubleChar("")); // ""
+    System.out.println(doubleChar("a")); // "aa"
+    System.out.println(doubleChar(".")); // ".."
+    System.out.println(doubleChar("aa")); // "aaaa"
   }
 }
