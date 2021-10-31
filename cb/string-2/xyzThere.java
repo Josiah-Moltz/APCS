@@ -1,5 +1,9 @@
 public class xyzThere {
   public static boolean xyzThere(String str) {
+    /*
+    Return true if the given string contains an appearance of "xyz" where the xyz is not directly preceeded by a period (.).
+    So "xxyz" counts but "x.xyz" does not.
+    */
     if ( str.length() >= 3 ) {
       //string must have at least 3 characters
       if ( str.substring( 0, 3 ).equals( "xyz" ) ) {

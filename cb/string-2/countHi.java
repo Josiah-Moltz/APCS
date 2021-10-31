@@ -1,5 +1,8 @@
 public class countHi {
   public static int countHi(String str) {
+    /*
+    Return the number of times that the string "hi" appears anywhere in the given string.
+    */
     int hiNum = 0;
     for (int i = 0; i <= str.length() - 2; i++) {
       if ( str.substring(i,i+2).equals("hi") ) {
