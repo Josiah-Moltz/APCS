@@ -33,6 +33,7 @@ QCC
  *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
 ***/
 
+import java.util.Scanner;
 
 public class Pig
 {
@@ -212,7 +213,15 @@ public class Pig
       }
 
       System.out.println( engToPig( phrase) );
+          
     }
+    
+    Scanner sc = new Scanner( System.in );
+
+    while( sc.hasNext() ) {
+      System.out.println( engToPig( sc.next() ) );
+      System.out.println( engToPig( sc.next() ) );
+    } 
 
   }//end main()
 
