@@ -1,27 +1,14 @@
 /*
 Strawberry Jam: Melody Lew + Ollie, Sophia Eiden + Giraffe, Josiah Moltz + Hedwig
 APCS pd6
-HW34 -- A Pirate's Life for Me / Array work / Frequency, linSearch, as iterative and recursive
-2021-11-12
-time spent: 1.5 hours (90 minutes)
+HW35 -- Same as HW34
+2021-11-15
+time spent: .1 hours (5 minutes)
 */
 
 /*
 DISCO:
-0. To print an array (in string version) we can use Array.toString
-1. To get the length of an array we can use .length (no parentheses)
-2. Arrays package provides a default toString for arrays.
-3. In our recursive Linear Search we originally had two calls of the linear search on aNext.
-   It took us a while, but we realized that this exponentiated the number of computations required
-   from contant * 1^(index of target) to constant * 2^(index of target) computations,
-   which is a VERY significant difference for large index of targets.
-   The fix was just to set a variable equal to the function call and use that variable
-   instead of forcing the machine to repeat computations.
 QCC:
-0. Why does .length work for arrays when it is a string method
-1. Why doesn't .length require parentheses?
-2. What class is .length from??? It doesn't seem to be in Array or (italicized) Array, or Arrays
-3. Whats up with Array and (italicized) Array in the AP subset?
 */
 
 public class Loopier{
@@ -54,14 +41,17 @@ public class Loopier{
   public static int linSearchR( int[] a, int target) {
     //THIS TOOK US FOREEEEEVER
     if (a.length == 0) {
+      //worst case
       return -1;
     }
 
     if (a[0] == target) {
+      //base
       return 0;
     }
 
     int[] aNext = new int[a.length - 1];
+    //this will be the reductive step, essentially just a with the first element removed
 
     for (int i = 1; i < a.length; i += 1) {
       aNext[i - 1] = a[i];
@@ -70,10 +60,13 @@ public class Loopier{
     int next = linSearchR(aNext,target);  //prevents machine abuse from occuring
 
     if (next == -1) {
+      //ensures a return value of -1 propagates to the original call
       return -1;
     }
 
     return 1 + next;
+    //we remove one element, shifting the indices of everything down by 1
+    //the plus one compensates for this
   }
 
   public static int freq(int[] a, int target) {
