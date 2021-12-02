@@ -61,6 +61,24 @@ public class Rational {
     q = q * divisor.p;
   }
 
+  public static int gcd(int m, int n) {
+    if (m > n) {
+      return gcd(m - n, n);
+    }
+    else if (m < n) {
+      return gcd(m, n - m);
+    }
+    else {
+      return m;
+    }
+  }
+
+  public void simplify() {
+    int d = gcd(p, q);
+    p = p / d;
+    q = q / d;
+  }
+
   public static void main(String[] args) {
     // TY LAUREN LEE WE STAN YOUUUU
     Rational def = new Rational();
@@ -74,24 +92,39 @@ public class Rational {
     Rational r = new Rational(1 , 8);
     Rational s = new Rational(1 , 2);
     Rational t = new Rational(21 , 5);
+
     System.out.println("r: " + r + " ...should be 1/8");
     System.out.println("s: " + s + " ...should be 1/2");
     System.out.println("t: " + t + " ...should be 21/5");
+
     System.out.println("float value of r " + r.floatValue() + " ...should be 0.125");
     System.out.println("float value of s " + s.floatValue() + " ...should be 0.5");
     System.out.println("float value of t " + t.floatValue() + " ...should be 4.2"); // :)
+
     r.multiply(s);
     System.out.println("value of r after multiplication: " + r + " ...should be 1/16");
     System.out.println("value of s after multiplication: " + s + " ...should be 1/2");
+
     r.divide(s);
     System.out.println("value of r after division: " + r + " ...should be 2/16");
     System.out.println("value of s after division: " + s + " ...should be 1/2");
+
+    r. simplify();
+    System.out.println("value of r after simplification: " + r + " ...should be 1/8");
+
     r.multiply(t);
-    System.out.println("value of r after multiplication: " + r + " ...should be 42/80");
+    System.out.println("value of r after multiplication: " + r + " ...should be 21/40");
     System.out.println("value of t after division: " + t + " ...should be 21/5");
+
+    r.simplify();
+    System.out.println("value of r after simplification: " + r + " ...should be 21/40");
+
     r.divide(t);
-    System.out.println("value of r after multiplication: " + r + " ...should be 210/1680");
+    System.out.println("value of r after multiplication: " + r + " ...should be 105/840");
     System.out.println("value of t after division: " + t + " ...should be 21/5");
+
+    r.simplify();
+    System.out.println("value of r after simplification: " + r + "...should be 1/8");
   }
 
 }
