@@ -2,7 +2,7 @@
 // APCS pd6
 // HW45 -- Array of Titanium / Writing an interface / writing ListInt as an interface to implement in SuperArray
 // 2021-12-08
-// time spent:
+// time spent: .7
 
 /*
 DISCO:
