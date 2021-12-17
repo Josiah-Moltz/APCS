@@ -1,3 +1,18 @@
+// Strawberry JAM: Sophia Eiden, Melody Lew, Josiah Moltz
+// APCS pd6
+// HW48 -- Halving the Halves / Binary Search Two Ways / Iterative and Recursive Binary Search
+// 2021-12-15 & 2021-12-16
+// time spent: .5 hrs
+
+/*
+DISCO
+0. lo > hi NOT lo >= hi (48)
+
+QCC
+
+
+*/
+
 /**
    class BinSearch
    Binary search on array of Comparables
@@ -16,11 +31,10 @@ public class BinSearch
   {
     //uncomment exactly 1 of the 2 stmts below:
 
-    //return binSearchIter( a, target, 0, a.length-1 );
-    return binSearchRec( a, target, 0, a.length-1 );
+    return binSearchIter( a, target, 0, a.length-1 );
+    //return binSearchRec( a, target, 0, a.length-1 );
   }
 
-// ERROR ERROR ERROR ERROR WEEEE WOOOOOO
   public static int binSearchRec( Comparable[] a,
                                   Comparable target,
                                   int lo, int hi )
@@ -30,7 +44,7 @@ public class BinSearch
 
     int m = (lo + hi) / 2; //init mid pos var
 
-    if ( lo >= hi ) {
+    if ( lo > hi ) {
       return tPos;
     }
     else if ( target.compareTo( a[m] ) < 0 ) {
@@ -48,27 +62,36 @@ public class BinSearch
     return tPos;
   }//end binSearchRec
 
-  // public static int binSearchIter( Comparable[] a,
-  //                                  Comparable target,
-  //                                  int lo, int hi )
-  // {
-  //
-  //   int tPos = -1; //init return var to flag value -1
-  //   int m = (lo + hi) / 2; //init mid pos var
-  //
-  //   while( /* ? */ ) { // run until lo & hi cross
-  //
-  //     //update mid pos var
-  //
-  //     // target found
-  //
-  //     // value at mid index higher than target
-  //
-  //     // value at mid index lower than target
-  //
-  //   }
-  //   return tPos;
-  // }//end binSearchIter
+  public static int binSearchIter( Comparable[] a,
+                                   Comparable target,
+                                   int lo, int hi )
+  {
+
+    int tPos = -1; //init return var to flag value -1
+    int m = (lo + hi) / 2; //init mid pos var
+
+    while( lo <= hi ) { // run until lo & hi cross
+
+      //update mid pos var
+      m = (lo + hi) / 2;
+
+      // target found
+      if ( target.compareTo( a[m] ) == 0 ) {
+        tPos = m;
+        return tPos;
+      }
+      // value at mid index higher than target
+      else if ( target.compareTo( a[m] ) < 0 ) {
+        hi = m - 1;
+      }
+      // value at mid index lower than target
+      else {
+        lo = m + 1;
+      }
+
+    }
+    return tPos;
+  }//end binSearchIter
 
 
   //tell whether an array is sorted in ascending order
