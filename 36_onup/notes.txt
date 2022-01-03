@@ -1,0 +1,51 @@
+Josiah Moltz
+APCS
+HW36 -- All Quacked Up / Debugging / Think Java Apendix D: Reading and Notes
+2021--11--18
+time spent: .5 hr (30 minutes)
+
+Compile time errors - Syntax error (javac)
+Run time errors - Error while running (java)
+Logic errors - Code doesn't produce expected result
+
+Compile
+=======
+ONLY LOOKE AT 1 ERROR AT A TIME!!
+	error messages tend to have... errors
+Error locations aren't always wehre errors are, could be elsewhere
+Check syntax
+Check the file!! Ensure you are compiling the file you were just editing!!
+Debugging by bisection (desperate)
+	Manually binary search for the error, by spliting file up into halves and so on
+
+Run
+===
+Add prints to reveal the flow of the program 
+	Ex: entering/exiting loop
+Program "hanging": Program stops and does nothing
+	Infinite loop/recursion or LOTS of computation
+Null Pointer 
+	Instance variable was null
+Array Index
+	Array index out of bounds
+Stack Overflow
+	Infinite Recursion
+File Not Found
+	File not found...
+Arithmetic Expression
+	Division by 0 and the likes
+CLEAN YOUR CODE!!!
+
+Logic
+=====
+Make hypothesis about why error occurs
+Make/correct mental model
+Breaking expressions up
+Use temporary values to display intermediates
+println is more reliable than print
+
+General
+=======
+TAKE A BREAK!!!
+Start small
+Use duckie

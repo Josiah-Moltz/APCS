@@ -1,24 +1,40 @@
 // Can Josiah Beautify?: Corina Chen, Josiah Moltz, Brian Wang
 // APCS06
 // L00 -- Etterbay Odingcay Oughthray Ollaborationcay / pig latin translator / augmenting functionality to phrases
-// 2021-11-08
-// time spent: .8 hr ( 48 minutes)
+// 2021-11-09
+// time spent: 1.2 hr ( 75 minutes)
 
 /*
 DISCO
-  -Arrays have length() function as length (no parentheses)
-  -Strings of length 0 ANNIHILATE our code :(
+  -Strings of length 0 no longer wrecks our main method, probably due to scanner functionality
+  -toUpperCase() and toLowerCase() twin methods
 
 QCC
-  -Not that we have ATM
+  -How do you get scanner to not split phrases up into their individual words?
+  -Is there an easy way to detect syllables in a word (concerning y being a vowel)?
+  -What punctuations should be considered (outside of what is already included)?
+  -What about a word with multiple punctuations for one word!!??!?!
+
+HOW WE UTILIZED SCANNER DEMO
+  -We directly used the code from the Scanner Demo to implement Scanner into v3.
+   Through testing within the Scanner Demo, we were able to find out how scanner works, its limitations,
+   along with the "error" involving the double prints, which were fixed and considered when added into our code.
+
+WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO
+  -System.out.println( engToPig( sc.next() ) ) was ran twice every iteration of the while loop.
+   The conditional in the while loop only checks if there is one more element to sc, not two.
+   Therefore, by incrementing by two while only checking one, we can pass the end of sc.
+
+NEW IN V3
+  -Handling of y
+  -Handling of capitalization
+  -Handling of punctuation
+  -Implemented usage of Scanner
 
 */
 
+
 /***
- *
- * class Pig
- * a Pig Latin translator
- * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
  *           9
  *     ,--.-'-,--.
  *     \  /-~-\  /
@@ -28,17 +44,15 @@ QCC
  *     \   `-'   /
  *      | |---| |
  *      [_]   [_]
- *      PROTIP: Make this class compilable first,
- *      then develop and test one method at a time.
- *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
 ***/
 
 import java.util.Scanner;
 
 public class Pig
 {
-  //Q: How does this initialization make your life easier?
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "aeiouAEIOU";
+
+  private static final String PUNCTUALS = "!.:,;?";
 
 
   /*=====================================
@@ -128,7 +142,6 @@ public class Pig
     return ans;
   }
 
-
   /**
     boolean beginsWithVowel(String) -- tells whether a String begins with a vowel
     pre:  w != null and w.length() > 0
@@ -150,14 +163,26 @@ public class Pig
   public static String engToPigW( String w ) {
 
     String ans = "";
+    String punct = "";
 
-    if ( beginsWithVowel(w) )
+    if ( punctuated(w) ) {
+      punct = w.substring( w.length() - 1 );
+      w = w.substring( 0, w.length() - 1 );
+    }
+
+    if ( beginsWithVowel( w ) )
       ans = w + "way";
 
     else {
-      int vPos = w.indexOf( firstVowel(w) );
-      ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+      int vPos = w.indexOf( firstVowelY(w) );
+      ans = w.substring(vPos) + w.substring(0,vPos).toLowerCase() + "ay";
     }
+
+    if ( capitalized( w ) ) {
+      ans = ans.substring(0,1).toUpperCase() + ans.substring(1);
+    }
+
+    ans += punct;
 
     return ans;
   }
@@ -190,6 +215,43 @@ public class Pig
     return result;
   }
 
+//New stuff for caps cases
+//========================================================================
+
+  public static boolean capitalized( String w ) {
+    //checks if first letter of w is capitalized
+    return w.substring(0,1).equals( w.substring(0,1).toUpperCase() );
+  }
+
+//New stuff for punctuation cases
+//========================================================================
+
+  public static boolean punctuated( String w ) {
+    //checks if last letter of w is a grammar symbol
+    return hasA( PUNCTUALS, w.substring( w.length() - 1 ) );
+  }
+
+  //New stuff for y (the most evelist fo all the vowyls)
+  //========================================================================
+
+    public static String firstVowelY( String w ) {
+      int yIndex = w.toLowerCase().indexOf( "y" );
+
+      if ( firstVowel( w ).equals("") && hasA( w , "y" ) ) {
+        //SHORT CIRCUITING GENIUS by BW, uses fact that a word either has a vowel, or a y ALWAYS
+        return "y";
+      }
+
+      else if (yIndex != -1 && w.indexOf( firstVowel( w ) ) - yIndex > 1 ) {
+        return "y";
+      }
+
+      else{
+        return firstVowel( w );
+      }
+    }
+
+
   public static String engToPig( String p ) {
     String[] w = phraseToWords( p );
     String result = engToPigW( w[0] );
@@ -204,24 +266,11 @@ public class Pig
 
   public static void main( String[] args ) {
 
-    for( String phrase : args ) {
-      System.out.println( spaceCounter( phrase ) );
-
-      for( String word : phraseToWords( phrase ) ) {
-        // testing phraseToWords since just printing it would yield gibberish
-        System.out.println( word );
-      }
-
-      System.out.println( engToPig( phrase) );
-          
-    }
-    
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNext() ) {
       System.out.println( engToPig( sc.next() ) );
-      System.out.println( engToPig( sc.next() ) );
-    } 
+    }
 
   }//end main()
 
