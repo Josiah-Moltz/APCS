@@ -26,7 +26,7 @@
  * q2: How will you know when sorted?
  * a2: When the sorted section of the array list takes up the entire array list, we know that the array list is sorted.
  * q3: What constitues a pass?
- * a3: A pass finishes when we finish comparing and swapping the element with index p with the elements of indices less than p.
+ * a3: One traversion of the elements in a partition.
  * q4: What must you track?
  * a4: We must track which parts of the array list is sorted and not sorted.
  ******************************/
