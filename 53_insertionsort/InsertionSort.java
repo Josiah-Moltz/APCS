@@ -8,10 +8,10 @@
  * class InsertionSort -- implements InsertionSort algorithm
  *
  * ALGO:
- * We start looking at the element with index 1.
+ * We start looking at the element with index n-1.
  * We compare that element with the elements with indices less than it.
  * Swap the elements if the element with a greater index is less than the element with the lesser index. We only swap adjacent/consecutive elements.
- * We keep passing through the ArrayList of n elements n - 2 times.
+ * We keep passing through the ArrayList of n elements n - 1s times.
  * Repeat steps 2 and 3 with each pass.
  *
  * DISCO
