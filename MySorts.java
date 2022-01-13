@@ -6,9 +6,9 @@
 
 import java.util.ArrayList;
 
-public class Sorts {
+public class MySorts {
   //Bubble Sort
-  public static void bubble( ArrayList<Comparable> data )
+  public static void bubbleSort( ArrayList<Comparable> data )
   {
     int compNum = 0;  //counts the number of comparisons
     int switchNum = 0;  //counts the number of switches
@@ -29,13 +29,10 @@ public class Sorts {
       }
     }
 
-    System.out.println("Passes: " + (data.size()-1));
-    System.out.println("Comparisons: " + compNum);
-    System.out.println("Switches: " + switchNum);
   }
 
   //Selection Sort
-  public static void selection( ArrayList<Comparable> data )
+  public static void selectionSort( ArrayList<Comparable> data )
   {
     int compNum = 0;  //counts the number of comparisons
     int switchNum = 0;  //counts the number of switches
@@ -59,14 +56,10 @@ public class Sorts {
       switchNum += 1; //switch just made
       //System.out.println( "after swap: " +  data );//diag
     }
-
-    System.out.println("Passes: " + (data.size()-1));
-    System.out.println("Comparisons: " + compNum);
-    System.out.println("Switches: " + switchNum);
   }//end selection
 
   //Insertion Sort
-  public static void insertion( ArrayList<Comparable> data )
+  public static void insertionSort( ArrayList<Comparable> data )
   {
     int compNum = 0;  //counts the number of comparisons
     int switchNum = 0;  //counts the number of switches
@@ -95,10 +88,6 @@ public class Sorts {
           break;
       }
     }
-
-    System.out.println("Passes: " + (data.size()-1));
-    System.out.println("Comparisons: " + compNum);
-    System.out.println("Switches: " + switchNum);
   }//end insertion
 
 
