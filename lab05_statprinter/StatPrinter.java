@@ -67,7 +67,7 @@ public class StatPrinter
   public StatPrinter( ArrayList <Integer> data )
   {
   //  _frequency = new ArrayList<Integer>( 5 );
-    _frequency = new ArrayList<Integer>();
+    _frequency = new ArrayList<Integer>();  // COULD be ArrayList<Integer>( max(data) ) to ensure we never expand
     for (int i = 0; i < max(data)+1; i++) {
       _frequency.add(0);  //makes sure _frequency is properly sized
     }
