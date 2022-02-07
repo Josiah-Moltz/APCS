@@ -34,10 +34,8 @@ public class NT {
   }
 
   public static void main(String[] args) {
-    for (int i = 1; i < 31; i++) {
-      if (order(i,31) == 15) {
-        System.out.println(orbit(i,31));
-      }
+    for (int i = 1; i < 17; i++) {
+      System.out.println(orbit(i,17));
     }
   }
 }
