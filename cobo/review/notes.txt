@@ -1,0 +1,24 @@
+MNM: Mosiah, Nora Miller
+APCS pd6
+HW61: Instructions so Simple...
+2022-02-07
+time spent: .5 hrs
+
+DISCO
+------------------------------------------------
+*
+================================================
+
+
+QCC
+------------------------------------------------
+* Why were these directions so... ambiguous? Would have liked more direction on starRating
+* How do we fill the positiveAdjectives.txt and negativeAdjectives.txt files (without doing it manually)?
+  We thought about using the redirector commands in terminal but it still doesn't seem clear what to do
+================================================
+
+
+COMPREHENSION QUESTIONS
+------------------------------------------------
+* WILL BE DONE LATER (we glanced at them and said "we can do that" and moved on)
+================================================
