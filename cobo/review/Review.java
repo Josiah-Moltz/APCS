@@ -202,42 +202,18 @@ public class Review {
 
   public static String fakeReview(String fileName) {
     // find all the indexes of *
-    //
-    return "";
-  }
-
-  public static void popNegative() {
-    try {
-      Scanner input = new Scanner(new File("cleanSentiment.csv"));
-      while(input.hasNextLine()){
-        String[] temp = input.nextLine().split(",");
-        if (Integer.parseInt(temp[1])<0) {
-          System.out.println(temp[0]);
-        }
-        //System.out.println("added "+ temp[0]+", "+temp[1]);
+    String revText = textToString(fileName);
+    String newText = "";
+    String[] words = revText.split(" ");
+    for (int i = 0; i < words.length; i ++){
+      String word = words[i];
+      if (word.substring(1).equals("*")) {
+        // RANDOM WORD
+        words[i] = "RANDOM"; // FIX LATER!!
       }
-      input.close();
+      newText += words[i] + " ";
     }
-    catch(Exception e){
-      System.out.println("Error reading or parsing cleanSentiment.csv");
-    }
-  }
-
-  public static void popPositive() {
-    try {
-      Scanner input = new Scanner(new File("cleanSentiment.csv"));
-      while(input.hasNextLine()){
-        String[] temp = input.nextLine().split(",");
-        if (Integer.parseInt(temp[1])>0) {
-          System.out.println(temp[0]);
-        }
-        //System.out.println("added "+ temp[0]+", "+temp[1]);
-      }
-      input.close();
-    }
-    catch(Exception e){
-      System.out.println("Error reading or parsing cleanSentiment.csv");
-    }
+    return newText;
   }
 
   public static void main(String[] args){
