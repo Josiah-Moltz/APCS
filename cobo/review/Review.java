@@ -1,3 +1,11 @@
+/*
+Jinx - Josiah Moltz, Nora Miller, Xinqing Lin
+APCS pd6
+HW63: Read/Review/Expand
+2021-02-10
+time spent: 1.5 hr + class time
+*/
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
@@ -117,7 +125,7 @@ public class Review {
     /**
    * Returns the word after removing any beginning or ending punctuation
    */
-  public static String removePunctuation( String word ) // removes the first punctuation
+  public static String removePunctuation( String word )
   {
     while(word.length() > 0 && !Character.isAlphabetic(word.charAt(0)))
     {
@@ -163,22 +171,25 @@ public class Review {
     }
   }
 
-  public static double totalSentiment(String fileName){
-	  String revText = textToString(fileName);
-	  double total = 0;
-	  String[] words = revText.split(" ");
-	  // split into tiny strings
-	  // total sentiment
-	  for (String word : words){
-		  word = removePunctuation(word);
-		  total += sentimentVal(word);
-	  }
-	  return total;
+  public static double totalSentiment(String fileName) {
+    String review = textToString(fileName);
+    review = removePunctuation(review);
+    double totsentiment = 0;
+    String currentword = "";
 
-	  // remove punctuation from each
-	  // find sentiment of word; add to total
-	  //
+    for (int i = 0; i < review.length(); i++) {
+      if (review.substring(i,i+1).equals(" ")) {
+        totsentiment += sentimentVal(currentword);
+        currentword = "";
+      }
+      else {
+        currentword += review.substring(i,i+1);
+      }
+    }
 
+    totsentiment += sentimentVal(currentword);
+
+    return totsentiment;
   }
 
   public static int starRating(String fileName) {
@@ -201,30 +212,34 @@ public class Review {
   }
 
   public static String fakeReview(String fileName) {
-    // find all the indexes of *
-    String revText = textToString(fileName);
-    String newText = "";
-    String[] words = revText.split(" ");
-    for (int i = 0; i < words.length; i ++){
-      String word = words[i];
-      if (word.substring(1).equals("*")) {
-        // RANDOM WORD
-        words[i] = "RANDOM"; // FIX LATER!!
-      }
-      newText += words[i] + " ";
+    String review = textToString(fileName);
+
+    while (review.indexOf("*") > -1) {
+      int askeriskI = review.indexOf("*");
+      int spaceI = review.indexOf(" ", askeriskI); //end index of to-be-deleted adjective
+      review = review.substring(0, askeriskI) + randomNegativeAdj() + review.substring(spaceI);
     }
-    return newText;
+    return review;
   }
 
-  public static void main(String[] args){
-    /*
-    System.out.println("testing sentimentVal");
-    System.out.println(sentimentVal("abandoned"));
-    System.out.println("testing totalSentiment");
-    System.out.println(totalSentiment("Gatsby.txt"));
-    System.out.println(starRating("Gatsby.txt"));*/
+  public static void main(String[] args) {
+    System.out.println(sentimentVal("absent"));
+    System.out.println(sentimentVal("flawed"));
+    System.out.println(sentimentVal("activity"));
 
-    popNegative();
+    System.out.println("-----------------------------------------------------");
+
+    System.out.println(totalSentiment("SimpleReview.txt"));
+    System.out.println(starRating("SimpleReview.txt"));
+
+    System.out.println("-----------------------------------------------------");
+
+    System.out.println(totalSentiment("TestReview.txt"));
+    System.out.println(starRating("TestReview.txt"));
+
+    System.out.println("-----------------------------------------------------");
+
+    System.out.println(fakeReview("SimpleReview.txt"));
+    System.out.println(fakeReview("TestReview.txt"));
   }
-
 }

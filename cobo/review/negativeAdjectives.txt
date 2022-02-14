@@ -1,1 +1,10 @@
-Error reading or parsing cleanSentiment.csv
+fraudulent
+crazy
+annoying
+pouty
+malicious
+loud
+mean
+awful
+disgusting
+salty
