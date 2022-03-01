@@ -1,0 +1,47 @@
+JINX: Josiah Moltz, Nora Miller, Xinqing Lin
+APCS pd6
+HW67 -- A Knight Goes on Tour / Algorithm Planning / Designing an algorithm to discover whether an nXn board has a Knight Tour
+2022-2-28
+time spent: 0.8 hrs
+
+Algorithm:
+
+assumptions/givens
+ - How a knight moves
+ - What a knight tour is
+ - Size of board (n) (as in for a specific function call, we need size of board)
+
+goal
+  Determine if Knight Tour exists on nXn board, and then print the solution we found.
+
+"finished product"
+  If placing a knight at square (0,0) results in a solution (HELPER), do it.
+  If not, if placing a knight at square (0,1) results in a solution (HELPER), do it.
+  Continue this process, covering every possible starting square.
+
+  HELPER(last play):
+  Move knight into last play
+  Take a set of all possible moves a knight can make (+2,+1) (+2,-1) (-2,+1) (-2,-1) (+1,+2) (+1,-2) (-1,+2) (-1,-2)
+  For each possible move, check if the specific move is possible and results in a solution (HELPER)
+    If so, make this move, return true.
+    If not, try the next possible move.
+  If there are no more possible moves to try, go backwards a move.
+  Continue doing this until the tour has been completed or all possibilities for doing a tour have been exhausted.
+
+VIQs to consider:
+- How is Knight’s Tour similar to N-Queens?
+  - We need to place/remove pieces based on whether or not there are dead ends
+
+- How does Knight’s Tour differ from N-Queens?
+  - Queens have easier movements to work with than knights
+  - In N-Queens, you place queens from the left to the right because there can only be one queen in each column,
+    which made it easier to check when we were done. We need some other way to check if we're done with the Knight's
+    Tour. Possibly keeping an int of number of knights placed?
+
+- Which is harder?
+  - Perhaps Knight's Tour because of the L shape movement, and the fact that we can't eliminate swathes of squares
+
+- Is a “Knight’s Tour” even possible?
+  - Nora: ... not necessarily???
+  - Josiah: NO CLUE??
+  - Xinqing: Maybe
