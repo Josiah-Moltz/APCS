@@ -1,8 +1,8 @@
-// Clyde Sinclair
-// APCS pd0
-// HW68 -- recursively probing for a closed cycle
-// 2022-02-28m
-// time spent:  hrs
+// JINX - Josiah Moltz, Nora Miller, and Xinqing Lin
+// APCS pd6
+// HW68 -- ...and T-, Tr-, Tri-, Tries Again Until It's Done / recursively probing for a closed cycle
+// 2022-03-01
+// time spent: 2.5 hrs (most was spent waiting for n=8 to run)
 
 /***
  * SKELETON
@@ -15,16 +15,24 @@
  * $ java KnightTour [N]
  *
  * ALGO
+ * - If tour completed, print and exit
+ * - If selected space occupied or out of bounds, stop this attempt
+ * - Otherwise, mark current space and test all other possibilities
+ * - If all possibilities exhausted, remove most recent knight and stop this attempt
  *
  * DISCO
+ * - The primary base case should be _sideLength * _sideLength + 1, not _sideLength * _sideLength
+ *   because, if we end the method at _sideLength * _sideLength, we won't be able to mark the
+ *   last square with a move number.
  *
  * QCC
+ * - Trying to find a solution for the 8x8 board took a very, very long time.
  *
  * Mean execution times for boards of size n*n:
- * n=5   __s    across __ executions
- * n=6   __s    across __ executions
- * n=7   __s    across __ executions
- * n=8   __s    across __ executions
+ * n=5   10.320s    across 5 executions
+ * n=6   286.11s    across 1 executions
+ * n=7   26.535s    across 3 executions
+ * n=8   NOT DONE RUNNING, RUN FOR ABOUT 1HRs    across 1 executions
  *
  * POSIX PROTIP: to measure execution time from BASH, use time program:
  * $ time java KnightTour 5
@@ -40,7 +48,7 @@ public class KnightTour
 {
   public static void main( String[] args )
   {
-    int n = 8;
+    int n = 6;
 
     try {
       n = Integer.parseInt( args[0] );
@@ -64,8 +72,8 @@ public class KnightTour
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for random starting location, use lines below:
-    //int startX = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-    //int startY = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
+    int startX = (Math.random() * n) + 2;
+    int startY = (Math.random() * n) + 2;
     //tf.findTour( startX, startY, 1 );   // 1 or 0 ?
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -89,23 +97,23 @@ class TourFinder
   //constructor -- build board of size n x n
   public TourFinder( int n )
   {
-    _sideLength = n+4; // buffer zone of 2 on each side
+    _sideLength = n;
 
     //init 2D array to represent square board with moat
-    _board = new int[_sideLength][_sideLength];
+    _board = new int[_sideLength+4][_sideLength+4];
 
     //SETUP BOARD --  0 for unvisited cell
     //               -1 for cell in moat
     //---------------------------------------------------------
-    for (int i = 0; i < _sideLength; i++) {
+    for (int i = 0; i < _sideLength+4; i++) {
       _board[i][0] = -1;
       _board[i][1] = -1;
       _board[0][i] = -1;
       _board[1][i] = -1;
-      _board[i][_sideLength-2] = -1;
-      _board[i][_sideLength-1] = -1;
-      _board[_sideLength-2][i] = -1;
-      _board[_sideLength-1][i] = -1;
+      _board[i][_sideLength+2] = -1;
+      _board[i][_sideLength+3] = -1;
+      _board[_sideLength+2][i] = -1;
+      _board[_sideLength+3][i] = -1;
     }
     //---------------------------------------------------------
 
@@ -159,16 +167,16 @@ class TourFinder
     //delay(50); //slow it down enough to be followable
 
     //if a tour has been completed, stop animation
-    if ( true/*???*/ ) System.exit(0);
+    if ( _solved == true ) System.exit(0);
 
     //primary base case: tour completed
-    if ( true/*???*/ ) {
-      /*???*/
+    if ( moves == _sideLength * _sideLength + 1 ) {
+      _solved = true;
       System.out.println( this ); //refresh screen
       return;
     }
     //other base case: stepped off board or onto visited cell
-    if ( true/*???*/ ) {
+    if ( _board[x][y] != 0 ) {
       return;
     }
     //otherwise, mark current location
@@ -176,9 +184,9 @@ class TourFinder
     else {
 
       //mark current cell with current move number
-      _board[x][y] = /*???*/
+      _board[x][y] = moves;
 
-      //System.out.println( this ); //refresh screen
+      System.out.println( this ); //refresh screen
 
       //delay(1000); //uncomment to slow down enough to view
 
@@ -191,13 +199,20 @@ class TourFinder
        *     g . . . b
        *     . h . a .
       ******************************************/
-      /*???*/
+      findTour( x+2, y+1, moves+1);
+      findTour( x+2, y-1, moves+1);
+      findTour( x-2, y+1, moves+1);
+      findTour( x-2, y-1, moves+1);
+      findTour( x+1, y+2, moves+1);
+      findTour( x+1, y-2, moves+1);
+      findTour( x-1, y+2, moves+1);
+      findTour( x-1, y-2, moves+1);
 
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
-        /*???*/
+      _board[x][y] = 0;
 
-      //System.out.println( this ); //refresh screen
+      System.out.println( this ); //refresh screen
     }
   }//end findTour()
 
