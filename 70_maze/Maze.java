@@ -1,26 +1,23 @@
-// Clyde Sinclair
+// Lemon Water: May Qiu, Emily Ortiz, Josiah Moltz
+// APCS pd6
 // APCS pd0
 // HW69 -- maze solving (blind, depth-first)
-// 2022-03-03r
-// time spent:  hrs
+// 2022-03-03
+// time spent: 1 hrs
 
 /***
- * SKEELTON for
- * class MazeSolver
- * Implements a blind depth-first exit-finding algorithm.
- * Displays probing in terminal.
- *
- * USAGE:
- * $ java Maze [path/to/mazefile]
- * (mazefile is ASCII representation of a maze, using symbols below)
- *
- * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
- *
  * DISCO
- *
+ * 0. # is an OCTOTHORPE not a "hashtag" but May is going to call it a hastag anyways B)
+ * 1. Default terminal window is 80X25
+ * 2. Emily and May slayed at SING!
+ * 3. System.Exit(0) terminates the JVM - intertrash
+ * 4. The reason our code backed up after solving for a little bit, but then stopped was
+      because we weren't actually calling another solve(), instead we had just checked in all directions
+      and were replacing @ with .
+  * 5. SING! was RIGGED >:(
  * QCC
- *
+ * 0. Why was System.Exit(0) required in the KnightTour?
+ * 1. Was System.Exit(0) required as a base case in Maze.java?
  ***/
 
 //enable file I/O
@@ -131,7 +128,7 @@ class MazeSolver
 
     //primary base case
     if ( _solved ) {
-	    System.exit(0);
+	    return;
     }
     //other base cases
     else if ( _maze[x][y] == '$' ) {
