@@ -30,13 +30,11 @@ or repeat the process on the upper or lower sections of the array (relative to t
 This will be O( n*log n ) time, since in the worst case each move we split arr into an array of half its length.
 This process must terminate after ~ log n moves, and since each move calls partitionator, our result is n*log n
 
-NOTE - we figured out a potential median-finding algo, but we got really tired.
-Basically we just consider adding elements to a set one at a time (sort of recursiony)
-{1,4,5,3}
-{1} - median 1
-{1,4} - median 1
-{1,4,5} - median 4
-{1,4,5,3} - median 3
+median algo thoughts
+====================
+Medians are nice bc they split the data into two sets of equal size, one above the median and one below.
+I wonder if we can recursively do something to decide in which direction the median of a list will move when a new element is added.
+The issue is we then have to have the "next best medians" on hand to choose when the median does move.
 
 BESTCASE
 O( n )
