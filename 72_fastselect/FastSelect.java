@@ -1,4 +1,4 @@
-// Ruawatrawain - Mosiah Joltz, David Deng, Benjamin Belotser
+// Ruawatrain - Mosiah Joltz, David Deng, Benjamin Belotser
 // APCS pd6
 // HW72 -- So So Fast
 // 2022-03-08
