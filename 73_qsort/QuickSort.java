@@ -22,6 +22,9 @@
  * It worked without us having to handle them separately.
  **/
 
+// NOTE NOTE NOTE
+// IT WOULD BE HARD TO INCLUDE TEST CASES DEMONSTRATING 2, SINCE WE CHOOSE RANDOM PIVOTS.
+
 public class QuickSort
 {
   //--------------v  HELPER METHODS  v--------------
