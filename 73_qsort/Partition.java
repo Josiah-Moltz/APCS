@@ -1,30 +1,31 @@
-// Clyde Sinclair
-// APCS pd0
+// Ruawatrain - Mosiah Joltz, David Deng, Benjamin Belotser
+// APCS pd6
 // HW71 -- Reading for intent, tracing for VICTORY
-// 2022-03-07m
-// time spent:  hrs
+// 2022-03-07
+// time spent: 1.4 hrs
 
+// WITCHCRAFT
 /***
- * class Parition (née Mysterion)
+ * class partition (née Mysterion)
  *
- * <h1>MYSTERION is PARTITION</h1>
- * The Mysterion method ... <YOUR TRIO'S DESCRIPTION HERE>
+ * <h1>MYSTERION is partitionator</h1>
+ * The Mysterion method ... partitionatorator
  * <p>
- * <b>Note:</b> BLAH blah blah, yakkety schmakketty...
- * @author  Trey Parker, Matt Stone
- * @version 3.1415926535897932384626433
- * @since   2022-03-08t
- *
- * algo as pseudocode:
- * ------------------------------
- *     v = arr[c]
- *     swap arr[c], arr[b]
- *     s = a
- *     for i in [a..b-1]
- *         if arr[i] < v
- *             swap arr[s], arr[i]
- *             s+=1
- *     swap arr[b], arr[s]
+ * <b>Note:</b> Named in honor of Dr. Doof.
+ * @author  Ben Belotser, David Deng, Josiah Moltz
+ * @version 1
+ * @since   2022-03-09
+ * <br>
+ * algo as pseudocode:  <br>
+ * ------------------------------ <br>
+ * &emsp;     v = arr[c] <br>
+ * &emsp;     swap arr[c], arr[b]  <br>
+ * &emsp;     s = a  <br>
+ * &emsp;     for i in [a..b-1]  <br>
+ * &emsp; &emsp;         if arr[i] &lt; v  <br>
+ * &emsp; &emsp; &emsp;             swap arr[s], arr[i]  <br>
+ * &emsp; &emsp; &emsp;             s+=1 <br>
+ * &emsp;     swap arr[b], arr[s]  <br>
  **/
 
 
@@ -69,19 +70,21 @@ public class Partition
   }
   //--------------^  HELPER METHODS  ^--------------
 
-
+  // WITCHCRAFT
   /**
-   * int partition(int[],int,int,int)
+   * int partitionator(int[],int,int,int)
    * DESCRIP
-   *
+   * partitionator will return an array where
+     all elements before arr[pvtPos] are less than arr[pvtPos],
+     and all elements after arr[pvtPos] are greater than arr[pvtPos].
    * @param arr input array of ints
-   * @param loPos
-   * @param hiPos
-   * @param pvtPos
-   * @return int position of
+   * @param loPos the minimum index of the array we touch
+   * @param hiPos the maximum index of the array we touch
+   * @param pvtPos the index of the chosen pivot
+   * @return int position of the pivot in the final array
    *
    */
-  public static int partition( int arr[], int loPos, int hiPos/*, int pvtPos*/) // REMEMBER hiPos excluded
+  public static int partitionator( int arr[], int loPos, int hiPos, int pvtPos)
   {
     /* AVERAGE estimation of MEDIAN (ew) - O(n) to find ~median
     we will select pvtPos here as follows
@@ -95,8 +98,6 @@ public class Partition
     /* RANDOM pvt - O(1) to find random pvt.
     select a random element, dats it.
     */
-    int pvtPos = (int) ( (hiPos - loPos) * Math.Random() ) + loPos; // this excludes hiPos from being selected
-
     int v = arr[pvtPos];
 
     swap( pvtPos, hiPos, arr);
@@ -110,7 +111,7 @@ public class Partition
     swap(s,hiPos,arr);
 
     return s;
-  }//end partition
+  }//end partitionator
 
 
   //main method for testing
@@ -124,37 +125,37 @@ public class Partition
     int[] arr5 = {3,0,16,599,1024};
 
 
-    // run partition on each array,
+    // run partitionator on each array,
     // holding loPos & hiPos fixed, varying pvtPos...
     for( int testPIVOT = 0; testPIVOT < 5; testPIVOT++ ) {
       System.out.println("arr1: ");
       printArr(arr1);
-      partition(arr1,0,4,testPIVOT);
-      System.out.println("after partition w/ loPos=0, hiPos=4, pvtPos="
+      partitionator(arr1,0,4,testPIVOT);
+      System.out.println("after partitionator w/ loPos=0, hiPos=4, pvtPos="
                          + testPIVOT +"...");
       printArr(arr1);
       System.out.println("-----------------------");
 
       System.out.println("arr3:");
       printArr(arr3);
-      partition(arr3,0,4,testPIVOT);
-      System.out.println("after partition w/ loPos=0, hiPos=4, pvtPos="
+      partitionator(arr3,0,4,testPIVOT);
+      System.out.println("after partitionator w/ loPos=0, hiPos=4, pvtPos="
                          + testPIVOT +"...");
       printArr(arr3);
       System.out.println("-----------------------");
 
       System.out.println("arr4:");
       printArr(arr4);
-      partition(arr4,0,4,testPIVOT);
-      System.out.println("after partition w/ loPos=0, hiPos=4, pvtPos="
+      partitionator(arr4,0,4,testPIVOT);
+      System.out.println("after partitionator w/ loPos=0, hiPos=4, pvtPos="
                          + testPIVOT +"...");
       printArr(arr4);
       System.out.println("-----------------------");
 
       System.out.println("arr5:");
       printArr(arr5);
-      partition(arr5,0,4,testPIVOT);
-      System.out.println("after partition w/ loPos=0, hiPos=4, pvtPos="
+      partitionator(arr5,0,4,testPIVOT);
+      System.out.println("after partitionator w/ loPos=0, hiPos=4, pvtPos="
                          + testPIVOT +"...");
       printArr(arr5);
       System.out.println("-----------------------");
@@ -163,4 +164,4 @@ public class Partition
     }
   }//end main
 
-}//end class Partition
+}//end class partitionator
