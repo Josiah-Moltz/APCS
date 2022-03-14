@@ -117,7 +117,14 @@ public class Partition
   //main method for testing
   public static void main( String[] args )
   {
-
+    int[] arr = {7,1,5,12,3};
+    partitionator(arr,0,4,1);
+    printArr(arr);
+    partitionator(arr,1,4,1);
+    printArr(arr);
+    partitionator(arr,2,4,2);
+    printArr(arr);
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //init test arrays of magic numbers
     int[] arr1 = {8,21,17,69,343};
     int[] arr3 = {1,28,33,4982,37};
@@ -159,9 +166,9 @@ public class Partition
                          + testPIVOT +"...");
       printArr(arr5);
       System.out.println("-----------------------");
-      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
     }
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
 }//end class partitionator

@@ -16,8 +16,54 @@
  * Repeat the algorithm on each of the shorter arrays. <br>
  * 2a. Worst pivot choice and associated run time:<br>
  * Every single pivot is an extreme (min/max of the array). O( n^2 ) <br>
+ * Array: {7,1,5,12,3}
+ * Call partition: loPos = 0, hiPos = 4, pvtPos = 1
+ * Resulting Array: {1,3,5,12,7}
+ *
+ * Right-array: {} (SORTED)
+ * Left-array: {3,5,12,7}
+ *
+ * Call partition: loPos = 1, hiPos = 4, pvtPos = 1
+ * Resulting Array: {3,5,12,7}
+ *
+ * Right-array: {} (SORTED)
+ * Left-array: {5,12,7}
+
+ * Call partition: loPos = 2, hiPos = 4, pvtPos = 2
+ * Resulting Array: {5,12,7}
+ *
+ * Right-array: {} (SORTED)
+ * Left-array: {12,7}
+ *
+ * Call partition: loPos = 3, hiPos = 4, pvtPos = 4
+ * Resulting Array: {7,12}
+ *
+ * Right-array: {} (SORTED)
+ * Left-array: {12} (SORTED)
+ *
+ * Result: {1,3,5,7,12}
  * 2b. Best pivot choice and associated run time:<br>
  * Every single pivot is the median of the array. O( n*log n ). <br>
+ * Array: {7,1,5,12,3}
+ * Call partition: loPos = 0, hiPos = 4, pvtPos = 2
+ * Resulting Array: {1,3,5,12,7}
+ *
+ * Left-array: {1,3}
+ * Right-array: {12,7}
+ *
+ * Call partition: loPos = 0, hiPos = 1, pvtPos = 0
+ * Resulting Array: {1,3}
+ *
+ * Left-array: {} (SORTED)
+ * Right-array: {3} (SORTED)
+ *
+ * Call partition: loPos = 3, hiPos = 4, pvtPos = 4
+ * Resulting Array: {7,12}
+ *
+ * Left-array: {7} (SORTED)
+ * Right-array: {} (SORTED)
+ *
+ * Result: {1,3,5,7,12}
  * 3. Approach to handling duplicate values in array:<br>
  * It worked without us having to handle them separately.
  **/
