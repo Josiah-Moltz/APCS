@@ -39,14 +39,16 @@ public class LLNode
   //--------------v  MUTATORS  v--------------
   public String setCargo( String newCargo )
   {
+    String temp = cargo;
     cargo = newCargo;
-    return newCargo;
+    return temp;
   }
 
   public LLNode setNext( LLNode newNext )
   {
+    LLNode temp = cdrgo;
     cdrgo = newNext;
-    return newNext;
+    return temp;
 
   }
   //--------------^  MUTATORS  ^--------------
