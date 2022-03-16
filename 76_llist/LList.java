@@ -32,7 +32,7 @@ public class LList implements List //interface def must be in this dir
   public LList( )
   {
     // YOUR CODE HERE
-    _head = null;
+    _head = null; // IS THIS CORRECT? It is the stem of much of our emotional damage (null pointer exceptions)
     _size = 0;
   }
 
