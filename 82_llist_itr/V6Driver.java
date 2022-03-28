@@ -6,6 +6,8 @@
  * Assumes local version of List.java, overriding Java standard library interface
  **/
 
+import java.util.Iterator;
+
 public class V6Driver
 {
   public static void main( String[] args )
@@ -25,6 +27,14 @@ public class V6Driver
 
     for( String s : wu ) {
       System.out.println( s + " raps for the Wu");
+    }
+
+    Iterator<String> it = wu.iterator();
+
+    while ( it.hasNext() ) {
+      System.out.println(it.next());
+      it.remove();
+      System.out.println(wu);
     }
   }//end main()
 

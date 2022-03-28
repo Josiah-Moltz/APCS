@@ -31,6 +31,6 @@ public interface List<T> extends Iterable<T>
     public int size();
 
     //return an Iterator over the elements in list
-    public Iterator<T> iterator();  // WE ADDED public... WHY WASN'T IT THERE BEFORE??
+    Iterator<T> iterator();
 
 }//end interface List

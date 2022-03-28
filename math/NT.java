@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class NT {
-  public static int order( int k, int p ) {
+  public static int order( int k, int p ) { // PRIME OPTIMIZED ONLY
     for ( int i = 1; i < p/2+1; i++ ) {
       if ( (p - 1) % i == 0 ) {
         int j = i;
@@ -33,9 +33,28 @@ public class NT {
     return result;
   }
 
-  public static void main(String[] args) {
-    for (int i = 1; i < 17; i++) {
-      System.out.println(orbit(i,17));
+  public static void arrayPrint( int[] array ) {
+    System.out.print('[');
+    for (int i: array) {
+      System.out.print(i + ", ");
     }
+    System.out.print(']');
+  }
+
+  public static void main(String[] args) {
+    int[] primitives = new int[40];
+    int counter = 0;
+    for (int i = 1; i < 101; i++) {
+      if ( primitive( i, 101 ) ) {
+        primitives[counter] = i;
+        counter++;
+      }
+    }
+    int product = 1;
+    for (int i: primitives) {
+      product *= (i*i-i+1)%101;
+      product = product%101;
+    }
+    System.out.println(product);
   }
 }

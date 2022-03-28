@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: List interface already extends Iterable
+public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
 {
   // Your List.java must be in same dir to supersede
   // built-in Java List interface
@@ -91,14 +91,14 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
       //walk to node before desired node
       for( int i=0; i < index-1; i++ ) {
         tmp1 = tmp1.getNext();
-        System.out.println( "tmp1: " + tmp1.getCargo() );
+        // System.out.println( "tmp1: " + tmp1.getCargo() );
       }
       //check target node's cargo hold
       T retVal = tmp1.getNext().getCargo();
 
       //remove target node
       tmp1.setNext( tmp1.getNext().getNext() );
-      System.out.println( "tmp1.getNext: " + tmp1.getNext().getCargo() );
+      // System.out.println( "tmp1.getNext: " + tmp1.getNext().getCargo() );
       tmp1.getNext().setPrev( tmp1 );
 
       _size--;
@@ -152,9 +152,11 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
 
 
   //return an Iterator over this list
-  public /* YOUR CODE HERE */
+  public Iterator<T> iterator()
   {
     /* YOUR CODE HERE */
+    MyIterator mit = new MyIterator();
+    return mit;
   }
 
   //--------------------------------------------------------
@@ -250,11 +252,15 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
   {
     private DLLNode<T> _dummy;   // dummy node to tracking pos
     private boolean _okToRemove; // flag indicates next() was called
+    private int index;
 
     //constructor
     public MyIterator()
     {
       /* YOUR CODE HERE */
+      _okToRemove = false;  // we haven't called next() yet
+      _dummy = _head; // abusing access to all the outer stuffs, like _head
+      index = -1; // points to index we wish to remove
     }
 
     //-----------------------------------------------------------
@@ -263,6 +269,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
     public boolean hasNext()
     {
       /* YOUR CODE HERE */
+      return _dummy != null;  // checks if next node is null
     }
 
 
@@ -270,15 +277,36 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
     public T next()
     {
       /* YOUR CODE HERE */
+      _okToRemove = true;
+      T retVal = _dummy.getCargo();
+      _dummy = _dummy.getNext();  // iterates dummy forward by one
+      index++;
+      return retVal; // returns cargo
     }
 
 
-    //return last element returned by this iterator (from last next() call)
+    //remove last element returned by this iterator (from last next() call)
     //postcondition: maintains invariant that _dummy always points to a node
     //               (...so that hasNext() will not crash)
     public void remove()
     {
-            /* YOUR CODE HERE */
+      /* YOUR CODE HERE */
+      if ( _okToRemove )
+      {
+        // CODE WITHOUT THE USE OF AN index INSTANCE VARIABLE
+        // int index = 0;
+        // DLLNode<T> tmp = _dummy;  // will be used to find index of _dummy
+        //
+        // while ( tmp.getPrev() != null ) {
+        //   index++;
+        //   tmp = tmp.getPrev();
+        // }
+
+        LList.this.remove(index); // why is this required? why are we in static?
+
+        _okToRemove = false;
+        index--;
+      }
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
@@ -289,7 +317,6 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     LList james = new LList();
 
     System.out.println("initially: " );
@@ -332,6 +359,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ? A: 
 
     System.out.println( "...after remove(0): " + james.remove(0) );
     System.out.println( james + "\tsize: " + james.size() );
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 

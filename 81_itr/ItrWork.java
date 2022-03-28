@@ -125,6 +125,12 @@ public class ItrWork
     for( int i = 0; i < 10; i++ )
       L.add(i);
 
+    Iterator<Integer> it = L.iterator();
+    while ( it.hasNext() ) {
+      System.out.println(it.next());
+      it.remove();
+    }
+    System.out.println(L);
 
     // TASK: write code to print the contents of L...
 
@@ -133,26 +139,26 @@ public class ItrWork
 
     // b) explicitly using an iterator
 
-
-    System.out.println("\nTesting foundA...");
-    System.out.println("9 in L? -> " + foundA(9,L) );
-    System.out.println("13 in L? -> " + foundA(13,L) );
-
-    System.out.println("\nTesting foundB...");
-    System.out.println("9 in L? -> " + foundB(9,L) );
-    System.out.println("13 in L? -> " + foundB(13,L) );
-
-    System.out.println("\nTesting oddsA...");
-    List<Integer> A = oddsA(L);
-    for( int n : A ) System.out.println(n);
-
-    System.out.println("\nTesting oddsB...");
-    List<Integer> B = oddsB(L);
-    for( int n : B ) System.out.println(n);
-
-    System.out.println("\nTesting removeEvens...");
-    removeEvens(L);
-    for( int n : L ) System.out.println(n);
+    //
+    // System.out.println("\nTesting foundA...");
+    // System.out.println("9 in L? -> " + foundA(9,L) );
+    // System.out.println("13 in L? -> " + foundA(13,L) );
+    //
+    // System.out.println("\nTesting foundB...");
+    // System.out.println("9 in L? -> " + foundB(9,L) );
+    // System.out.println("13 in L? -> " + foundB(13,L) );
+    //
+    // System.out.println("\nTesting oddsA...");
+    // List<Integer> A = oddsA(L);
+    // for( int n : A ) System.out.println(n);
+    //
+    // System.out.println("\nTesting oddsB...");
+    // List<Integer> B = oddsB(L);
+    // for( int n : B ) System.out.println(n);
+    //
+    // System.out.println("\nTesting removeEvens...");
+    // removeEvens(L);
+    // for( int n : L ) System.out.println(n);
         /*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
