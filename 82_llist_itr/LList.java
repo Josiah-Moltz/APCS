@@ -252,7 +252,6 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
   {
     private DLLNode<T> _dummy;   // dummy node to tracking pos
     private boolean _okToRemove; // flag indicates next() was called
-    private int index;
 
     //constructor
     public MyIterator()
@@ -260,7 +259,6 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
       /* YOUR CODE HERE */
       _okToRemove = false;  // we haven't called next() yet
       _dummy = _head; // abusing access to all the outer stuffs, like _head
-      index = -1; // points to index we wish to remove
     }
 
     //-----------------------------------------------------------
@@ -280,7 +278,6 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
       _okToRemove = true;
       T retVal = _dummy.getCargo();
       _dummy = _dummy.getNext();  // iterates dummy forward by one
-      index++;
       return retVal; // returns cargo
     }
 
@@ -291,22 +288,26 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     public void remove()
     {
       /* YOUR CODE HERE */
-      if ( _okToRemove )
-      {
-        // CODE WITHOUT THE USE OF AN index INSTANCE VARIABLE
-        // int index = 0;
-        // DLLNode<T> tmp = _dummy;  // will be used to find index of _dummy
-        //
-        // while ( tmp.getPrev() != null ) {
-        //   index++;
-        //   tmp = tmp.getPrev();
-        // }
+      if ( _okToRemove ) {
+        if ( hasNext() ) {
+          int index = 0;
+          DLLNode<T> tmp = _dummy;  // will be used to find index of _dummy
 
-        LList.this.remove(index); // why is this required? why are we in static?
+          while ( tmp.getPrev() != null ) {
+            index++;
+            tmp = tmp.getPrev();
+          }
 
-        _okToRemove = false;
-        index--;
+          LList.this.remove(index-1); // why is this required? why are we in static?
+
+          _okToRemove = false;
+          index--;
+        }
+        else {  // in case _dummy is null
+          removeLast();
+        }
       }
+
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------

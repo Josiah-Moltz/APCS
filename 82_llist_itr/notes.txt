@@ -19,3 +19,4 @@ QCC
               1 error
 ```
 1. How could/can we ensure all elements were removed without the use of an extra instance variable?
+EDIT QCC 1 was resolved after an excellent suggestion by TSR
