@@ -35,6 +35,7 @@ public class Stckr
     }
 
     cakes.pop();
+    cakes.peekTop();
 
     System.out.println("All done!");
 
