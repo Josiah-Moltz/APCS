@@ -1,7 +1,7 @@
 //ruawatrain: Benjamin Belotser, David Deng, Josiah Moltz
 //APCS pd6
-//HW75 -- Node for a linked list
-//2022-03-11
+//HW87 -- The English Do Not Wait In Line for Soup
+//2022-04-03
 //time spent: 1.5 hrs
 
 /*
