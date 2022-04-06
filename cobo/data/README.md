@@ -16,4 +16,19 @@ A1
 
 A2
   Q1  Cereal
-  Q2  
+  Q2  NA
+  Q3  public class Cereal {}
+  Q4  15, one for each column in the data
+  Q5  String name, String type, int calories, int protein, int fat, int sodium, int fiber, int carbohydrates, int sugar, int potassium, int vitamins, int shelf, float weight, float cups, float rating.
+  Q6  COME BACK TO IT!?!?!?!??!?!?!??!
+  Q7  ^
+  Q8  ^
+  Q9  ^
+  Q10 ^
+
+A3
+  Q1  The temperature at Atlanta, Hartsfield - Jackson Atlanta International Airport, GA is 62.0F
+  Q2  Q1 ID is KATL
+      New ID is KHOE
+      The temperature at Homerville Airport, GA is 64.0F
+  Q3  
