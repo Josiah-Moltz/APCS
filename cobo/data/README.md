@@ -34,4 +34,23 @@ A3
   Q3  Colder at KATL
   Q4  48 land stations NY
   Q5  We could filter weather stations by wind chill.
-  Q6
+  Q6  Pago Pago, AS, Samoa
+  Q7  What station has the lowest longitude?
+  Q8  About the same length of code it took to answer Q6
+
+A4
+  Q1  What is the lowest housing price in NYC. We wanted to know because some of us plan on living in NYC in the future.
+  Q2  We chose nyc-rolling-sales.csv from Kaggle.com. To find it, we went to Kaggle and searched for NYC prices.
+  Q3  We essentially emulated the code in the Welcome files, with substantial help from Salaj.
+  Q4  The class stored the Neighborhood, Address, and Price. We chose to store these three so that we could identify where the home was, and also so we could identify and compare the prices. 
+  Q5  ```ArrayList<Home> allHomes = ds.fetchList("Home", "NEIGHBORHOOD", "ADDRESS", "SALE PRICE");
+
+      Home minPrice = allHomes.get(0);
+      for ( Home home : allHomes ) {
+        if ( home.getPrice().length() > 2 && Long.parseLong( home.getPrice() ) < Long.parseLong( minPrice.getPrice() ) ) {
+          minPrice = home;
+        }
+      }
+      ```
+      We stored data involving Neighborhood, Address, and Sale Price. Then we sorted data based on what had the lowest price.
+      The first check in the if statement is to ensure that the price is at least 100 dollars, because as it turns out certain homes were sold for 0 dollars. We were informed that this is a way to avoid taxes, and so we avoided prices under 100 dollars.s
