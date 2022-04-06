@@ -20,15 +20,18 @@ A2
   Q3  public class Cereal {}
   Q4  15, one for each column in the data
   Q5  String name, String type, int calories, int protein, int fat, int sodium, int fiber, int carbohydrates, int sugar, int potassium, int vitamins, int shelf, float weight, float cups, float rating.
-  Q6  COME BACK TO IT!?!?!?!??!?!?!??!
-  Q7  ^
-  Q8  ^
-  Q9  ^
-  Q10 ^
+  Q6  See Cereal.java
+  Q7  See Cereal.java
+  Q8  What is the Vitamin to Volume (in cups) ratio
+  Q9  What is the cost of this cereal?
+  Q10 Add a new instance variable cost.
 
 A3
   Q1  The temperature at Atlanta, Hartsfield - Jackson Atlanta International Airport, GA is 62.0F
   Q2  Q1 ID is KATL
       New ID is KHOE
       The temperature at Homerville Airport, GA is 64.0F
-  Q3  
+  Q3  Colder at KATL
+  Q4  48 land stations NY
+  Q5  We could filter weather stations by wind chill.
+  Q6
