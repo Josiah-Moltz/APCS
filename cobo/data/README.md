@@ -1,17 +1,17 @@
 Answers to questions:
 A1
-  Q1  github.com, youtube.com
-  Q2  github collects usage info, registration info, payment info.
-  Q3  The word delimited means having fixed boundaries or limits.
+  \tQ1  github.com, youtube.com \
+  \tQ2  github collects usage info, registration info, payment info. \
+  \tQ3  The word delimited means having fixed boundaries or limits. \
       Delimited is necessary because you don't want them to take everything.
-  Q4  Look at the name of the column. In general... look at the data and determine the type??
-  Q5  Programming. Physics.
-  Q6  COME BACK TO IT!?!?!??!?!?!?!??!
-  Q7  ^
-  Q8  ^
-  Q9  YouTube's recommended videos are cool. Probably negative impact in terms of productivity.
+  Q4  Look at the name of the column. In general... look at the data and determine the type?? \
+  Q5  Programming. Physics. \
+  Q6  Programming: What were the most interesting topics of students over the past year? Physics: What were the most interesting topics of students over the past year?  \
+  Q7  There aren't any online datasets but we can poll current students across different classes in different schools. There are about 1000 students in different CS courses in Stuy right now? Not all classes have a heading implemented so, maybe, 75000 homework files are available for parsing using an algorithm that looks for positivity, like in the sentiment lab? \
+  Q8  Using a larger dataset with more records is better as it allows us to draw more accurate conclusions. It also lowers the effect that outliers have on the final data. \
+  Q9  YouTube's recommended videos are cool. Probably negative impact in terms of productivity. \
   Q10 We don't know for sure, but YouTube probably categorizes videos and then searches for similar types.
-      Additionally, YouTube probably also tracks what other users who watched the same videos watched, and recommends these.
+      Additionally, YouTube probably also tracks what other users who watched the same videos watched, and recommends these. \
   Q11 Not really. It doesn't really benefit the user, it is generally for company gain.
 
 A2
@@ -42,7 +42,7 @@ A4
   Q1  What is the lowest housing price in NYC. We wanted to know because some of us plan on living in NYC in the future.
   Q2  We chose nyc-rolling-sales.csv from Kaggle.com. To find it, we went to Kaggle and searched for NYC prices.
   Q3  We essentially emulated the code in the Welcome files, with substantial help from Salaj.
-  Q4  The class stored the Neighborhood, Address, and Price. We chose to store these three so that we could identify where the home was, and also so we could identify and compare the prices. 
+  Q4  The class stored the Neighborhood, Address, and Price. We chose to store these three so that we could identify where the home was, and also so we could identify and compare the prices.
   Q5  ```ArrayList<Home> allHomes = ds.fetchList("Home", "NEIGHBORHOOD", "ADDRESS", "SALE PRICE");
 
       Home minPrice = allHomes.get(0);
