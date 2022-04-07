@@ -43,7 +43,7 @@ Answers to questions:
   * Q2  We chose nyc-rolling-sales.csv from Kaggle.com. To find it, we went to Kaggle and searched for NYC prices.
   * Q3  We essentially emulated the code in the Welcome files, with substantial help from Salaj.
   * Q4  The class stored the Neighborhood, Address, and Price. We chose to store these three so that we could identify where the home was, and also so we could identify and compare the prices.
-  * Q5  `ArrayList<Home> allHomes = ds.fetchList("Home", "NEIGHBORHOOD", "ADDRESS", "SALE PRICE");``
+  * Q5  ```ArrayList<Home> allHomes = ds.fetchList("Home", "NEIGHBORHOOD", "ADDRESS", "SALE PRICE");```
 
       Home minPrice = allHomes.get(0);
       for ( Home home : allHomes ) {
