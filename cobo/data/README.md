@@ -1,4 +1,17 @@
-Answers to questions:
+# Ruawatrain
+\~ Ben Belotser \~ \
+\~ David Deng \~ \
+\~ Josiah Moltz \~
+
+# Our experience
+The lab started off well. The first day we were decently productive (however we focused more on reviewing the previous HW).
+
+The second day class went well. Then panic ensued. We never actually made a conscious note of the due date, and thus were left scrambling to complete it by 5:00. We went to the dojo, but it closed at 4:30 (we thought it closed at 5:00), and so the final few steps that would have happened in the last 30 minutes were thrown off track.
+
+Ignoring the panic, it was OK. It was a bit frustrating using tools whose mechanics we had no clue about. Additionally, completing Activity 4 with the data set we chose wasn't fun, since we ended up getting caught in peoples tax-evasion plans (0$ HOUSESSSSS WHAT).
+
+Also a HUGE thanks to Salaj who helped us at the dojo, without him A4 would have been MUCH harder.
+# Answers to questions
 ## A1
   * Q1  github.com, youtube.com
   * Q2  github collects usage info, registration info, payment info.
@@ -26,7 +39,7 @@ Answers to questions:
   * Q9  What is the cost of this cereal?
   * Q10 Add a new instance variable cost.
 
-## 3
+## A3
   * Q1  The temperature at Atlanta, Hartsfield - Jackson Atlanta International Airport, GA is 62.0F
   * Q2  Q1 ID is KATL
       New ID is KHOE
