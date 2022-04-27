@@ -2,7 +2,7 @@
 // APCS pd6
 // L09 -- Some Folks Call It A Charades
 // 2022-04-26
-// time spent:
+// time spent: 1.3 hrs
 
 /**
  * Celebrity base class for the Celebrity game.

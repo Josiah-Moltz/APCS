@@ -3,7 +3,7 @@ Ruawatrain: Benjamin Belotser, David Deng, Josiah Moltz \
 APCS pd6 \
 L09 -- Some Folks Call It A Charades \
 2022-04-26 \
-time spent: 1 hrs
+time spent: 1.3 hrs
 # Check-List of Greatness
 * ~Make a game class, with instance variables relating to what we would need~
 * ~Make celebrity class~
@@ -21,3 +21,5 @@ time spent: 1 hrs
 * Override method from superclass
 * Make a GUI
 * Add radio button to GUI
+# Our Experience
+Meh. The lab was very review-y with nothing new except for the GUI, which we heard was hard to complete and which we didn't have time for.
