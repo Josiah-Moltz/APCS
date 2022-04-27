@@ -4,7 +4,8 @@
 // 2022-04-26
 // time spent:
 
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 /**
  * The framework for the Celebrity Game project
@@ -26,13 +27,14 @@ public class CelebrityGame
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
-	 private ArrayList<Celebrity> celebGameList = new ArrayList<Celebrity>();
+	 private ArrayList<Celebrity> celebGameList;
 
 	/**
 	 * Builds the game and starts the GUI
 	 */
 	public CelebrityGame()
 	{
+		prepareGame(); // DD genius
 	}
 
 	/**
@@ -40,6 +42,7 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		celebGameList = new ArrayList<Celebrity>();
 	}
 
 	/**
@@ -52,6 +55,16 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
+		if (guess.trim().toLowerCase().equals(gameCelebrity.getAnswer().toLowerCase())) {
+			celebGameList.remove(0);
+			if(celebGameList.size()==0) {
+				gameCelebrity = new Celebrity("","");
+			}
+			else {
+				gameCelebrity = celebGameList.get(0);
+			}
+			return true;
+		}
 		return false;
 	}
 
@@ -62,7 +75,34 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-
+		InputStreamReader isr = new InputStreamReader( System.in );
+		BufferedReader in = new BufferedReader( isr );
+		String celebrity, clue, type;
+		celebrity = clue = type = "";	// garbage code, MJ doesn't like
+		while (celebGameList.size() < 2) {
+			try {
+				System.out.println("Name a celebrity!");
+				celebrity = in.readLine();
+				System.out.println("Give a clue to help guess the celebrity!");
+				clue = in.readLine();
+				System.out.println("What type of celebrity is this?");
+				type = in.readLine();
+			}
+			catch ( IOException e ) { }
+			addCelebrity(celebrity, clue, type);
+		}
+		if (celebGameList != null && celebGameList.size() > 0) {
+			this.gameCelebrity = celebGameList.get(0);
+		}
+		while (!gameCelebrity.getAnswer().equals("")) {	// really cool bc normally celebs have to have at least 4 characters
+			System.out.println("The clue is " + gameCelebrity.getClue());
+			System.out.println("Who do you think it is?");
+			try {
+				processGuess(in.readLine());
+			}
+			catch ( IOException e ) { }
+		}
+		System.out.println("Congorats!! You won all on your own (quite literally)!!");
 	}
 
 	/**
@@ -77,7 +117,9 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-
+		if (validateCelebrity(name) && validateClue(guess,type)) {
+			celebGameList.add(new Celebrity(name, guess));
+		}
 	}
 
 	/**
@@ -87,7 +129,7 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
-		return false;
+		return name.length() > 3;
 	}
 
 	/**
@@ -99,7 +141,7 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return false;
+		return (clue.length() > 9 || clue.contains(",")) && (type.equals("LiteratureCelebrity") || type.equals("Celebrity"));
 	}
 
 	/**
@@ -109,7 +151,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -132,5 +174,10 @@ public class CelebrityGame
 	public String sendAnswer()
 	{
 		return null;
+	}
+
+	public static void main(String[] args) {
+		CelebrityGame ruawatrain = new CelebrityGame();
+		ruawatrain.play();
 	}
 }
