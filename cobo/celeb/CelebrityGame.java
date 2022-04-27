@@ -79,7 +79,14 @@ public class CelebrityGame
 		BufferedReader in = new BufferedReader( isr );
 		String celebrity, clue, type;
 		celebrity = clue = type = "";	// garbage code, MJ doesn't like
-		while (celebGameList.size() < 2) {
+		Integer celebNum = 2;
+		try {
+			System.out.println("How many Celebrities do you want in the game?");
+			celebNum = Integer.parseInt(in.readLine());
+		}
+		catch ( IOException e ) { }
+
+		while (celebGameList.size() < celebNum) {
 			try {
 				System.out.println("Name a celebrity!");
 				celebrity = in.readLine();

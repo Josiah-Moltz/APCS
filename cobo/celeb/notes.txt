@@ -7,6 +7,7 @@ time spent: 1.3 hrs
 DISCO
 0. Not much, we didn't have time for the GUI so not much was new.
 1. In git-flavored md you can make a second-level bullet point with <tab> *
+2. Appending an & at the end of a terminal command allows you to continue using the terminal after running the command (used for evince)
 
 QCC
 0. Wow that lab was so out of order. They were referencing different sections throughout the lab and GUI was everywhere.
@@ -23,3 +24,7 @@ What methods should be in the Celebrity class -
 
 Alternative constructor -
   Code Sketch: instead of having the play method collect the celebrities, have this done in the constructor
+
+Attributes of Celebrity types -
+  Type of Celebrity: Academic
+  String Field of Study
