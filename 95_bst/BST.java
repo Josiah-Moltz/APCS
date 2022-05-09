@@ -22,9 +22,10 @@ public class BST
   /**
    * default constructor
    */
-  BST()
+  BST() // defaults to public??
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    _root = null;
   }
 
 
@@ -35,11 +36,13 @@ public class BST
   public void insert( int newVal )
   {
     TreeNode newNode = new TreeNode( newVal );
+    // PLAN while the value is less than or greater than keep iterating. Once done iterating insert.
     /*** YOUR IMPLEMENTATION HERE ***/
   }
   //recursive helper for insert(int)
   public void insert( TreeNode stRoot, TreeNode newNode )
   {
+    // PLAN move the root along until we are at the right space, then insert
     /*** YOUR IMPLEMENTATION HERE ***/
   }//end insert()
 
