@@ -9,7 +9,7 @@ public class TreeNode
 {
 
   //instance variables / attributes of a TreeNode:
-  int _cargo;        //this node's data
+  int _cargo;        //this node's data STORED AT THE NODE (for personal use)
   TreeNode _lt, _rt; //pointers to left, right subtrees
 
 

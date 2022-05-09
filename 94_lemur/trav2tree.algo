@@ -47,10 +47,10 @@ A: First lets assume PRE-ORDER traversal is in use
     All other traversals work out identically.
 
 Q: Given a pre-order traversal, what can you infer about its tree?
-A: the first node in the traversal is the root. 
+A: the first node in the traversal is the root.
 
 Q: Given a post-order traversal, what can you infer about its tree?
-A: the last node in the traversal is the root. 
+A: the last node in the traversal is the root.
 
 Q: What does "1-to-1" mean?
 A: Every input has a unique output.
@@ -67,6 +67,14 @@ givens: pre order and in order traversal
 
 procedure:
 
+1. Locate the root in the preorder traversal.
+2. Locate the root in the inorder traversal.
+3. Count how many nodes are to the left of the root in the inorder traversal (call this l), and how many are to the right (call this number r).
+4. From the root in the preorder traversal, take a subsection of l nodes starting right after the root.
+5. Recursively generate the left sub-branch using the l nodes to the left of the root in the inorder traversal, and the l nodes we counted out in the preorder traversal.
+6. Recursively generate the right sub-branch using the r nodes to the right of the root in the inorder traversal, and the remaining r nodes left in the preorder traversal.
+
+theory:
 Given the preorder traversal ROOT,STUFF and the inorder traversal LEFT,ROOT,RIGHT
 We instantly know the root.
 Now we can split STUFF into a two parts, STUFF-LEFT and STUFF-RIGHT so that STUFF-LEFT is a re-ordering of LEFT, and STUFF-RIGHT is a re-ordering of RIGHT.
@@ -88,5 +96,3 @@ Repeating this for STUFF-RIGHT and RIGHT we can divine the looks of the right br
 This plus the node is the entire tree.
 ================================================
 (replicate the algo section above as many times as necessary for distinct algos)
-
-
