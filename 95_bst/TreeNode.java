@@ -1,3 +1,9 @@
+// Ruawatrain :: Benjamin Belotser, David Deng, Josiah Moltz
+// APCS pd6
+// HW95 --  Algorithm as Data Structure
+// 2022-05-09
+// time spent: 1 hrs
+
 /**
  * class TreeNode
  * SKELETON
