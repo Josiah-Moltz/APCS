@@ -4,6 +4,15 @@ HW95 --  Algorithm as Data Structure
 2022-05-09
 time spent: 1 hrs
 
+DISCO
+0. We cannot use the standard pass-by-reference for Objects equal to null
+   Thus we had to add null checks into our insert code.
+
+QCC
+0. What the <insert most colorful swear on hand> is null.
+   Why can't we reassign pointers that point to null in the "standard" way?
+1. Can we go over insert in class some to clear up the null issues? (is there a way to avoid the large if checks and stuff?)
+
 With L = level, d = depth, h = height
 h+d is constant? h+L is constant?? (not totally sure)
 
