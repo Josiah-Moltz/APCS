@@ -262,6 +262,19 @@ public class BST
     }
   }
 
+  /*
+  If the target is the root, reassign the root to be -1 and the right branch to be the original root.
+  Remove the node normally.
+  Fix the tree by replacing the root with its right branch.
+  If it is not a root:
+    Go to the node before the one we want to remove.
+    Is the target node a child? If so replace it with null.
+    If not, remove the left-most node on the right branch from the target node (or if this doesn't exist the right-most node on the left branch).
+    Now replace the target node with the value in the most-recently removed node
+  return the target (to demonstrate completion)
+  return -1 if the target was not in the tree.
+  */
+
   public int remove( int target ) {
     if (_root.getValue() == target) {
       // basically remake _root so that target is no longer the root, and then undo this change later
