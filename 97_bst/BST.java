@@ -1,8 +1,8 @@
 // Ruawatrain :: Benjamin Belotser, David Deng, Josiah Moltz
 // APCS pd6
-// HW96 --  BSTs is the Perfect Place for Shade
-// 2022-05-10
-// time spent: .5 hrs
+// HW97 --  Prune Your Tree
+// 2022-05-12
+// time spent: 2.5 hrs
 
 /**
  * class BST
@@ -223,31 +223,8 @@ public class BST
     return numLeaves( currNode.getLeft() ) + numLeaves( currNode.getRight() );
   }
 
-  public boolean isChild( TreeNode currNode ) {
-    if (currNode == null) {
-      return false;
-    }
-    return (currNode.getLeft() == null && currNode.getRight() == null);
-  }
-
-  public TreeNode rightMost( TreeNode currNode ) {  // helper for remove
-    if (currNode == null) {
-      return null;
-    }
-    while (currNode.getRight() != null) {
-      currNode = currNode.getRight();
-    }
-    return currNode;
-  }
-
-  public TreeNode leftMost( TreeNode currNode ) {
-    if (currNode == null) {
-      return null;
-    }
-    while (currNode.getLeft() != null) {
-      currNode = currNode.getLeft();
-    }
-    return currNode;
+  public boolean isChild( TreeNode c ) {
+    return (c.getLeft() == null && c.getRight() == null);
   }
 
   public TreeNode nodeBefore( TreeNode currNode, int target ) { // helper method
@@ -285,54 +262,70 @@ public class BST
     }
   }
 
-  public int remove(int target) {
-    TreeNode nodeBefore = nodeBefore(_root,target);
-    if (nodeBefore == null) {
-      return -1;
-    }
-    if (nodeBefore == _root) {
+  public int remove( int target ) {
+    if (_root.getValue() == target) {
+      // basically remake _root so that target is no longer the root, and then undo this change later
       TreeNode tmp = new TreeNode(-1);
       tmp.setRight(_root);
       _root = tmp;
-      return remove(target);
+      remove(target);
+      _root = _root.getRight();
+      return target;
     }
-    else {
-      return removeRoot(nodeBefore, target);
-    }
-  }
 
-  public int removeRoot(TreeNode nodeBefore, int target) {
-    TreeNode root;
-    System.out.println(nodeBefore.getValue() + "nb");
-    System.out.println(target + "t");
-    if (nodeBefore.getValue() > target) {
-      root = nodeBefore.getLeft();
+    TreeNode c = nodeBefore(_root,target);
+    if (c == null) {  // if target is not in the tree
+      return -1;
+    }
+    if (c.getValue() > target) {
+      c.setLeft(removeRoot(c.getLeft(),target));
     }
     else {
-      root = nodeBefore.getRight();
-    }
-    if (isChild(root)) {
-      return removeChild(nodeBefore, target);
-    }
-    if (root.getLeft() == null) {
-      root.setValue(leftMost(root.getRight()).getValue());
-      return removeRoot(leftMost(root.getRight()), leftMost(root.getRight()).getValue());
-    }
-    else {
-      root.setValue(rightMost(root.getLeft()).getValue());
-      return removeRoot(rightMost(root.getLeft()), rightMost(root.getLeft()).getValue());
-    }
-  }
-
-  public int removeChild(TreeNode nodeBefore, int target) {
-    if (target < nodeBefore.getValue()) {
-      nodeBefore.setLeft(null);
-    }
-    else {
-      nodeBefore.setRight(null);  // null crap requires .setRight and not =
+      c.setRight(removeRoot(c.getRight(),target));
     }
     return target;
   }
+
+  public TreeNode removeRoot( TreeNode root, int target ) {
+    if (isChild(root)) {  // base case
+      return null;
+    }
+    else {
+      if (root.getLeft() == null) {
+        int l = leftmost(root.getRight()).getValue();
+        remove(l);
+        root.setValue(l);
+      }
+      else {
+        int r = rightmost(root.getLeft()).getValue();
+        remove(r);
+        root.setValue(r);
+      }
+    }
+    return root;
+  }
+
+  public TreeNode leftmost( TreeNode c ) {
+    if (c == null) {
+      return null;
+    }
+    while (c.getLeft() != null) {
+      c = c.getLeft();
+    }
+    return c;
+  }
+
+  public TreeNode rightmost( TreeNode c ) {
+    if (c == null) {
+      return null;
+    }
+    while (c.getRight() != null) {
+      c = c.getRight();
+    }
+    return c;
+  }
+
+
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -412,10 +405,23 @@ public class BST
            \          \
            20         93
       */
+      treebeard.remove(93);
+      System.out.println(treebeard.search(93));
+      System.out.println("\nNo more 93");
       treebeard.inOrderTrav();
-      System.out.println("\n");
-      treebeard.removeRoot(treebeard.nodeBefore(treebeard._root,81),81);
+      treebeard.remove(42);
+      System.out.println(treebeard.search(42));
+      System.out.println("\nNo more 42");
       treebeard.inOrderTrav();
+      treebeard.remove(900);
+      System.out.println(treebeard.search(900));
+      System.out.println("\nNo more 900");
+      treebeard.inOrderTrav();
+      treebeard.remove(72);
+      System.out.println(treebeard.search(72));
+      System.out.println("\nNo more 72");
+      treebeard.inOrderTrav();
+
   }
 
 }//end class

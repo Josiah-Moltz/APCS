@@ -1,13 +1,15 @@
 Ruawatrain :: Benjamin Belotser, David Deng, Josiah Moltz
 APCS pd6
-HW96 --  BSTs is the Perfect Place for Shade
-2022-05-10
-time spent: .5 hrs
+HW97 --  Prune Your Tree
+2022-05-12
+time spent: 2.5 hrs
 
 DISCO
-0. be at node before to assign null bc nicer stuff with pointers that idk
+0. In the end when it finally worked it was wonderful, but felt like crying along the way.
+1. Better understanding of pointers was achieved through lots of time, blood, sweat, and tears.
 QCC
-0. Wanted to optimize by finding shortest subtree to use as new root
-1. What were we missing?? We understood what was going on but our code got overcomplicated and broken fast.
-2. I don't understand pointers.
-3. This assignment hurt a lot. Very frustrating.
+0. HOLY CRAP THIS WAS HARD.
+1. I feel like we should have had a better plan, but at the same time I don't think there was much we could have done differently.
+2. We honestly thought we understood the process quite well but when coding we hit so many tiny little errors (specifically with pointers) that it took a long time.
+3. Our code grew unweildly the more bugs we hit.
+4. Pointers are still confusing.
