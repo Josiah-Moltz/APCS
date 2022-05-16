@@ -2,7 +2,7 @@
 // APCS pd6
 // HW99 --  Some Are More Equal Than Others, Codified
 // 2022-05-13
-// time spent:
+// time spent: .5 hrs
 
 public interface PriorityQueue {
   void add(Integer x);
