@@ -1,9 +1,23 @@
+// Ruawatrain :: Benjamin Belotser, David Deng, Josiah Moltz
+// APCS pd6
+// HW102 -- Heap on Heaping on
+// 2022-05-17
+// time spent: 1.5 hrs
+
+/* DISCO:
+  heap is not so terrible.
+
+QCC: what do we use heaps for?
+  */
+import java.util.ArrayList;
+
 /**
  * class ALHeap
+ * SKELETON
  * Implements a min heap using an ArrayList as underlying container
  */
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class ALHeapMax
 {
@@ -20,6 +34,7 @@ public class ALHeapMax
   }
 
 
+
   /**
    * toString()  ---  overrides inherited method
    * Returns either
@@ -28,23 +43,7 @@ public class ALHeapMax
    */
   public String toString()
   {
-    // simple version:
-    return _heap.toString();
-
-    // //prettier version:
-    // String lvlOrdTrav = "heap size " + _heap.size() + "\n";
-    //
-    // if ( _heap.size() == 0 ) return lvlOrdTrav;
-    //
-    // int h = 1; //init height to 1
-    // for( int i = 0; i < _heap.size(); i++ ) {
-    //   lvlOrdTrav += i + ":" + _heap.get(i) + " ";
-    //   if ( i >= Math.pow(2,h) - 2 ) {
-    //     lvlOrdTrav += "\n";
-    //     h++;
-    //   }
-    // }
-    // return lvlOrdTrav;
+    return "" + _heap;
   }//O(n)
 
 
@@ -52,10 +51,16 @@ public class ALHeapMax
    * boolean isEmpty()
    * Returns true if no meaningful elements in heap, false otherwise
    */
-  public boolean isEmpty() { return _heap.isEmpty(); } //O(1)
+  public boolean isEmpty()
+  {
+    return _heap.isEmpty();
+  }//O(1)
 
 
-  public int size() { return _heap.size(); }
+  public int size()
+  {
+    return _heap.size();
+  }
 
 
   /**
@@ -65,11 +70,8 @@ public class ALHeapMax
    */
   public Integer peekMax()
   {
-    if ( _heap.size() < 1 )
-      return null;
-    else
-      return _heap.get(0);
-  } //O(1)
+    return _heap.get(0);
+  }//O(1)
 
 
   /**
@@ -77,80 +79,50 @@ public class ALHeapMax
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * add the value at leftmost child of highest level (end of arrayList).
+   * While addVal is less than its parent and its not the root, swap addVal with its parent.
+   *
    */
   public void add( Integer addVal )
   {
+    int currPos = _heap.size();
+    _heap.add(currPos, addVal);
 
-    //Add value as last node, to maintain balance, completeness of tree
-    _heap.add( addVal );
-
-    int addValPos = _heap.size() - 1;
-    int parentPos;
-
-    while( addValPos > 0 ) { //potentially swap until reach root
-
-      //pinpoint parent
-      parentPos = (addValPos-1) / 2;
-
-      if ( addVal.compareTo(_heap.get(parentPos)) > 0 ) { //addVal > parent
-        swap( addValPos, parentPos );
-        addValPos = parentPos;
-      }
-      else
-        break;
+    while(currPos > 0 && addVal > _heap.get((currPos-1)/2)){
+      swap(currPos, (currPos - 1)/2);
+      currPos = (currPos -1)/2;
     }
-  } //O(logn)
+
+  }//O(log(n))
 
 
-  /**
+ /**
    * removeMax()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   *  basecases: if heap is empty, then return null. If heap is size 1, return the value at index 0 (first element).
+   * else, set the rightmost leaf to be the root. While it has children, check if it has 2 children,
+   *  if it does, then swap with smaller value. else, compare with left child. if greater, swap. else, return.
+   *
    */
   public Integer removeMax()
   {
-    if ( _heap.size() == 0 )
+    if(_heap.size() == 0){
       return null;
-
-    //store root value for return at end of fxn
-    Integer retVal = peekMax();
-
-    //store val about to be swapped into root
-    Integer foo = _heap.get( _heap.size() - 1);
-
-    //swap last (rightmost, deepest) leaf with root
-    swap( 0, _heap.size() - 1 );
-
-    //lop off last leaf
-    _heap.remove( _heap.size() - 1);
-
-    // walk the now-out-of-place root node down the tree...
-    int pos = 0;
-    int maxChildPos;
-
-    while( pos < _heap.size() ) {
-
-      //choose child w/ min value, or check for child
-      maxChildPos = maxChildPos(pos);
-
-      //if no children, then i've walked far enough
-      if ( maxChildPos == -1 )
-        break;
-      //if i am greater than my greatest child, then i've walked far enough
-      else if ( foo.compareTo( _heap.get(maxChildPos) ) >= 0 )
-        break;
-      //if i am < greatest child, swap with that child
-      else {
-        swap( pos, maxChildPos );
-        pos = maxChildPos;
-      }
     }
-    //return removed value
+    if(_heap.size() == 1){
+      return _heap.remove(0);
+    }
+    Integer retVal =  _heap.set(0, _heap.remove(_heap.size()- 1));
+    int currPos = 0;
+    while( maxChildPos(currPos) != -1 && _heap.get(maxChildPos(currPos)) > _heap.get(currPos) ){
+      int tmp = maxChildPos(currPos);
+      swap(maxChildPos(currPos),currPos);
+      currPos = tmp;
+    }
     return retVal;
-  }//O(logn)
+  }//O(log(n))
 
 
   /**
@@ -161,33 +133,21 @@ public class ALHeapMax
    */
   private int maxChildPos( int pos )
   {
-    int retVal;
-    int lc = 2*pos + 1; //index of left child
-    int rc = 2*pos + 2; //index of right child
-
-    //pos is not in the heap or pos is a leaf position
-    if ( pos < 0 || pos >= _heap.size() || lc >= _heap.size() )
-      retVal = -1;
-    //if no right child, then left child is only option for min
-    else if ( rc >= _heap.size() )
-      retVal = lc;
-    //have 2 children, so compare to find least
-    else if ( _heap.get(lc).compareTo(_heap.get(rc)) > 0 )
-      retVal = lc;
-    else
-      retVal = rc;
-    return retVal;
+    if ( 2*pos+1 >= _heap.size()){
+      return -1;
+    }
+    if ( 2*pos+2 >= _heap.size()) {
+      return 2*pos+1;
+    }
+    if ( _heap.get(2*pos+1) >= _heap.get(2*pos+2) ) {
+      return 2*pos+1;
+    }
+    else {
+      return 2*pos+2;
+    }
   }//O(1)
 
-
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
-  private Integer minOf( Integer a, Integer b )
-  {
-    if ( a.compareTo(b) < 0 )
-      return a;
-    else
-      return b;
-  }
 
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
@@ -201,6 +161,7 @@ public class ALHeapMax
   //main method for testing
   public static void main( String[] args )
   {
+
       ALHeapMax pile = new ALHeapMax();
 
       pile.add(2);
@@ -246,8 +207,7 @@ public class ALHeapMax
       System.out.println(pile);
       System.out.println("removing " + pile.removeMax() + "...");
       System.out.println(pile);
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
   }//end main()
 
 }//end class ALHeapMax
