@@ -3,9 +3,9 @@
 // HW102 -- Heap on Heaping on
 // 2022-05-17
 // time spent: 1.5 hrs
- 
+
 /* DISCO:
-  heap is not so terrible. 
+  heap is not so terrible.
 
 QCC: what do we use heaps for?
   */
@@ -73,9 +73,9 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * add the value at leftmost child of highest level (end of arrayList). 
+   * add the value at leftmost child of highest level (end of arrayList).
    * While addVal is less than its parent and its not the root, swap addVal with its parent.
-   * 
+   *
    */
   public void add( Integer addVal )
   {
@@ -86,7 +86,7 @@ public class ALHeap
       swap(currPos, (currPos - 1)/2);
       currPos = (currPos -1)/2;
     }
-    
+
   }//O(log(n))
 
 
@@ -94,9 +94,9 @@ public class ALHeap
    * removeMin()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
-   * ALGO: 
-   *  basecases: if heap is empty, then return null. If heap is size 1, return the value at index 0 (first element). 
-   * else, set the rightmost leaf to be the root. While it has children, check if it has 2 children, 
+   * ALGO:
+   *  basecases: if heap is empty, then return null. If heap is size 1, return the value at index 0 (first element).
+   * else, set the rightmost leaf to be the root. While it has children, check if it has 2 children,
    *  if it does, then swap with smaller value. else, compare with left child. if greater, swap. else, return.
    *
    */
@@ -111,9 +111,12 @@ public class ALHeap
     Integer retVal =  _heap.set(0, _heap.remove(_heap.size()- 1));
     int currPos = 0;
     while( minChildPos(currPos) != -1){
-      int tmp = minChildPos(currPos);
-      swap(minChildPos(currPos),currPos);
-      currPos = tmp;
+      if (_heap.get(minChildPos(currPos)) < _heap.get(currPos))
+      {
+        int tmp = minChildPos(currPos);
+        swap(minChildPos(currPos),currPos);
+        currPos = tmp;
+      }
     }
     return retVal;
   }//O(log(n))
@@ -153,7 +156,7 @@ public class ALHeap
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -162,7 +165,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-   
+
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -208,7 +211,7 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
-      
+
   }//end main()
 
 }//end class ALHeap
