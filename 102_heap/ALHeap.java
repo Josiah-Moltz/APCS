@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 //import java.util.ArrayList;
 
-public class ALHeap
+public class ALHeapMin
 {
 
   //instance vars
@@ -28,7 +28,7 @@ public class ALHeap
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeap()
+  public ALHeapMin()
   {
     _heap = new ArrayList<Integer>();
   }
@@ -110,13 +110,10 @@ public class ALHeap
     }
     Integer retVal =  _heap.set(0, _heap.remove(_heap.size()- 1));
     int currPos = 0;
-    while( minChildPos(currPos) != -1){
-      if (_heap.get(minChildPos(currPos)) < _heap.get(currPos))
-      {
-        int tmp = minChildPos(currPos);
-        swap(minChildPos(currPos),currPos);
-        currPos = tmp;
-      }
+    while( minChildPos(currPos) != -1 && _heap.get(minChildPos(currPos)) < _heap.get(currPos) ){
+      int tmp = minChildPos(currPos);
+      swap(minChildPos(currPos),currPos);
+      currPos = tmp;
     }
     return retVal;
   }//O(log(n))
@@ -166,7 +163,7 @@ public class ALHeap
   public static void main( String[] args )
   {
 
-      ALHeap pile = new ALHeap();
+      ALHeapMin pile = new ALHeapMin();
 
       pile.add(2);
       System.out.println(pile);
@@ -214,4 +211,4 @@ public class ALHeap
 
   }//end main()
 
-}//end class ALHeap
+}//end class ALHeapMin
