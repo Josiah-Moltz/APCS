@@ -1,8 +1,8 @@
 // Ruawatrain :: Benjamin Belotser, David Deng, Josiah Moltz
 // APCS pd6
 // HW104 -- (Upside Down Medusa's Head of PriorityQueues)Sort
-// 2022-05-17
-// time spent: 1.5 hrs
+// 2022-05-19
+// time spent: .5 hrs
 
 /*
 DISCO
